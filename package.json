@@ -1,0 +1,15 @@
+{
+  "name": "neurture-website",
+  "version": "1.0.0",
+  "description": "Neurture website",
+  "scripts": {
+    "start": "live-server --port=8000 --no-browser --ignore=.git/**",
+    "generate": "node scripts/generate-html.js"
+  },
+  "devDependencies": {
+    "live-server": "1.2.1",
+    "js-yaml": "^4.1.0",
+    "jsdom": "^22.1.0"
+  },
+  "dependencies": {}
+}
