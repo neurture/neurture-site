@@ -30,13 +30,13 @@
         background-color: white;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        padding: 3rem;
+        padding: 2.5rem;
       }
 
       .logo {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 2rem;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -50,32 +50,32 @@
       }
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         color: #0a0a23;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
       }
 
       h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: #0a0a23;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       p {
         font-size: 1.1rem;
         line-height: 1.5;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
       }
 
       .promo-code {
         font-size: 2rem;
         font-weight: bold;
         color: #4caf50;
-        padding: 1rem 2rem;
+        padding: 0.75rem 1.5rem;
         background-color: #f0f8f0;
         border-radius: 5px;
         display: inline-block;
-        margin: 1rem 0 2rem;
+        margin: 0.5rem 0 1rem;
         letter-spacing: 2px;
       }
 
@@ -118,7 +118,7 @@
       .qr-codes {
         display: flex;
         justify-content: space-between;
-        margin-top: 2rem;
+        margin-top: 1rem;
         width: 100%;
       }
 
@@ -165,11 +165,11 @@
       }
 
       .app-store-btn {
-        height: 44px;
+        height: 48px;
       }
 
       .play-store-btn {
-        height: 52px; /* Make the Play Store button slightly larger */
+        height: 48px; /* Match App Store button height exactly */
       }
     </style>
   </head>
@@ -211,7 +211,6 @@
       <div class="promo-code">MHM25</div>
       <p>Use this code for your first month free of Neurture Premium.</p>
 
-      <p>Scan one of these QR codes to download Neurture:</p>
       <div class="qr-codes">
         <div class="qr-code">
           <div class="store-label">App Store</div>
@@ -237,6 +236,8 @@
           </a>
         </div>
       </div>
+
+      <p>Scan one of these QR codes to download Neurture:</p>
 
       <div class="app-buttons">
         <div class="store-button-container">
@@ -277,28 +278,26 @@
         return /Android/.test(navigator.userAgent);
       }
 
-      // Wait for the page to load
+      // Execute when the page loads
       window.onload = function () {
-        setTimeout(function () {
-          // Hide loading spinner
-          document.getElementById("loading").style.display = "none";
+        // Hide loading spinner
+        document.getElementById("loading").style.display = "none";
 
-          // Check if user is on iOS
-          if (isIOS()) {
-            // Redirect iOS users to the specified link
-            window.location.href = "https://apps.apple.com/app/id6467687675";
-          }
-          // Check if user is on Android
-          else if (isAndroid()) {
-            // Show Android content
-            document.getElementById("android-content").style.display = "block";
-          }
-          // If not iOS or Android (desktop or other)
-          else {
-            // Show desktop content with QR codes
-            document.getElementById("desktop-content").style.display = "block";
-          }
-        }, 1000); // Small delay to show loading spinner
+        // Check if user is on iOS
+        if (isIOS()) {
+          // Redirect iOS users to the App Store
+          window.location.href = "https://apps.apple.com/app/id6467687675";
+        }
+        // Check if user is on Android
+        else if (isAndroid()) {
+          // Show Android content
+          document.getElementById("android-content").style.display = "block";
+        }
+        // If not iOS or Android (desktop or other)
+        else {
+          // Show desktop content with QR codes
+          document.getElementById("desktop-content").style.display = "block";
+        }
       };
     </script>
   </body>
