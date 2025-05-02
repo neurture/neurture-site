@@ -317,6 +317,15 @@
         document.getElementById("promo-code-android").textContent = promoCode;
         document.getElementById("promo-code-desktop").textContent = promoCode;
 
+        // Update App Store URL with promo code
+        const appleRedemptionUrl = `https://apps.apple.com/redeem?ctx=offercodes&id=6467687675&code=${promoCode}`;
+        const appStoreLinks = document.querySelectorAll(
+          'a[href*="apps.apple.com"]'
+        );
+        appStoreLinks.forEach((link) => {
+          link.href = appleRedemptionUrl;
+        });
+
         // Apply partner customization if provided
         if (partnerName && partnerName.trim() !== "") {
           // Set partner name
@@ -354,8 +363,9 @@
 
         // Check if user is on iOS
         if (isIOS()) {
-          // Redirect iOS users to the App Store
-          window.location.href = "https://apps.apple.com/app/id6467687675";
+          // Redirect iOS users to the App Store with promo code
+          const promoCode = getUrlParameter("promo") || "MHM25";
+          window.location.href = `https://apps.apple.com/redeem?ctx=offercodes&id=6467687675&code=${promoCode}`;
         }
         // Check if user is on Android
         else if (isAndroid()) {
