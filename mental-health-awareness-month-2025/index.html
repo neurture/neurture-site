@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neurture - Mental Health Awareness Month 2025</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 600px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #0a0a23;
+        margin-bottom: 1.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: #0a0a23;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+
+      .promo-code {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4caf50;
+        padding: 1rem 2rem;
+        background-color: #f0f8f0;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 1rem 0 2rem;
+        letter-spacing: 2px;
+      }
+
+      .app-button {
+        display: inline-block;
+        margin-top: 1.5rem;
+      }
+
+      .app-button img {
+        height: 60px;
+      }
+
+      .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #4caf50;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .qr-codes {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .qr-code {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .qr-image {
+        width: 150px;
+        height: 150px;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        color: #666;
+        text-align: center;
+      }
+
+      .store-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Detecting your device...</p>
+    </div>
+
+    <div id="android-content" class="container" style="display: none">
+      <div class="logo"></div>
+      <h1>Mental Health Awareness Month 2025</h1>
+      <p>
+        Thank you for your interest in Neurture during Mental Health Awareness
+        Month. As an Android user, we've got a special offer for you!
+      </p>
+
+      <h2>Your Special Promo Code</h2>
+      <div class="promo-code">MHM25</div>
+      <p>Use this code for your first month free of Neurture Premium.</p>
+
+      <p>Download Neurture from the Google Play Store:</p>
+      <a
+        href="https://play.google.com/store/apps/details?id=com.neurture.app"
+        class="app-button"
+      >
+        <img
+          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+          alt="Get it on Google Play"
+        />
+      </a>
+    </div>
+
+    <div id="desktop-content" class="container" style="display: none">
+      <div class="logo"></div>
+      <h1>Mental Health Awareness Month 2025</h1>
+      <p>
+        Thank you for your interest in Neurture during Mental Health Awareness
+        Month. We've got a special offer for you!
+      </p>
+
+      <h2>Your Special Promo Code</h2>
+      <div class="promo-code">MHM25</div>
+      <p>Use this code for your first month free of Neurture Premium.</p>
+
+      <p>Scan one of these QR codes to download Neurture:</p>
+      <div class="qr-codes">
+        <div class="qr-code">
+          <div class="store-label">App Store</div>
+          <div class="qr-image">QR Code placeholder<br />for App Store</div>
+          <a href="https://apps.apple.com/us/app/neurture/id1234567890">
+            <img
+              src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              class="app-button"
+            />
+          </a>
+        </div>
+
+        <div class="qr-code">
+          <div class="store-label">Google Play</div>
+          <div class="qr-image">QR Code placeholder<br />for Google Play</div>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.neurture.app"
+          >
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+              class="app-button"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to detect iOS
+      function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      }
+
+      // Function to detect Android
+      function isAndroid() {
+        return /Android/.test(navigator.userAgent);
+      }
+
+      // Wait for the page to load
+      window.onload = function () {
+        setTimeout(function () {
+          // Hide loading spinner
+          document.getElementById("loading").style.display = "none";
+
+          // Check if user is on iOS
+          if (isIOS()) {
+            // Redirect iOS users to the specified link
+            window.location.href =
+              "https://apps.apple.com/us/app/neurture/id1234567890";
+          }
+          // Check if user is on Android
+          else if (isAndroid()) {
+            // Show Android content
+            document.getElementById("android-content").style.display = "block";
+          }
+          // If not iOS or Android (desktop or other)
+          else {
+            // Show desktop content with QR codes
+            document.getElementById("desktop-content").style.display = "block";
+          }
+        }, 1000); // Small delay to show loading spinner
+      };
+    </script>
+  </body>
+</html>
