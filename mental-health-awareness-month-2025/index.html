@@ -171,6 +171,17 @@
       .play-store-btn {
         height: 48px; /* Match App Store button height exactly */
       }
+
+      .partnership {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .partner {
+        display: inline;
+      }
     </style>
   </head>
   <body>
@@ -183,11 +194,15 @@
       <div class="logo">
         <img src="../images/neurture-icon.png" alt="Neurture" />
       </div>
-      <h1>Mental Health Awareness Month 2025</h1>
+      <h1><span id="partner-name-android"></span>Neurture</h1>
+      <p class="partnership">Mental Health Awareness Month 2025</p>
 
       <h2>Your Promo Code</h2>
-      <div class="promo-code">MHM25</div>
+      <div class="promo-code" id="promo-code-android">MHM25</div>
       <p>Use this code for your first month free of Neurture Premium.</p>
+      <p id="exclusive-android" style="display: none">
+        Exclusive for <span class="partner-name"></span> members!
+      </p>
 
       <p>Download Neurture from the Google Play Store:</p>
       <a
@@ -205,11 +220,15 @@
       <div class="logo">
         <img src="../images/neurture-icon.png" alt="Neurture" />
       </div>
-      <h1>Mental Health Awareness Month 2025</h1>
+      <h1><span id="partner-name-desktop"></span>Neurture</h1>
+      <p class="partnership">Mental Health Awareness Month 2025</p>
 
       <h2>Your Promo Code</h2>
-      <div class="promo-code">MHM25</div>
+      <div class="promo-code" id="promo-code-desktop">MHM25</div>
       <p>Use this code for your first month free of Neurture Premium.</p>
+      <p id="exclusive-desktop" style="display: none">
+        Exclusive for <span class="partner-name"></span> members!
+      </p>
 
       <div class="qr-codes">
         <div class="qr-code">
@@ -278,8 +297,58 @@
         return /Android/.test(navigator.userAgent);
       }
 
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      // Function to apply partner customizations
+      function applyPartnerCustomizations() {
+        // Get parameters from URL
+        const partnerName = getUrlParameter("partner");
+        const promoCode = getUrlParameter("promo") || "MHM25";
+
+        // Apply promo code
+        document.getElementById("promo-code-android").textContent = promoCode;
+        document.getElementById("promo-code-desktop").textContent = promoCode;
+
+        // Apply partner customization if provided
+        if (partnerName && partnerName.trim() !== "") {
+          // Set partner name
+          const formattedPartnerName = partnerName + " + ";
+          document.getElementById("partner-name-android").textContent =
+            formattedPartnerName;
+          document.getElementById("partner-name-desktop").textContent =
+            formattedPartnerName;
+
+          // Update document title
+          document.title =
+            "Neurture + " +
+            partnerName +
+            " - Mental Health Awareness Month 2025";
+
+          // Show exclusive message
+          document.getElementById("exclusive-android").style.display = "block";
+          document.getElementById("exclusive-desktop").style.display = "block";
+
+          // Set partner name in exclusive message
+          const partnerSpans = document.getElementsByClassName("partner-name");
+          for (let i = 0; i < partnerSpans.length; i++) {
+            partnerSpans[i].textContent = partnerName;
+          }
+        }
+      }
+
       // Execute when the page loads
       window.onload = function () {
+        // Apply partner customizations
+        applyPartnerCustomizations();
+
         // Hide loading spinner
         document.getElementById("loading").style.display = "none";
 
