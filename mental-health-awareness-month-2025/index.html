@@ -71,12 +71,88 @@
         font-size: 2rem;
         font-weight: bold;
         color: #4caf50;
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 1.5rem 0.5rem;
         background-color: #f0f8f0;
         border-radius: 5px;
         display: inline-block;
         margin: 0.5rem 0 1rem;
         letter-spacing: 2px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .promo-code:hover {
+        background-color: #e8f5e8;
+      }
+
+      .promo-code:active {
+        background-color: #d8f0d8;
+      }
+
+      .copy-hint {
+        font-size: 0.7rem;
+        color: #777;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .code-text {
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .copy-icon {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-right: 3px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'%3E%3Cpath d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .code-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0;
+        flex-direction: column;
+      }
+
+      .code-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .code-label {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .copied-message {
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none; /* Prevent message from interfering with clicks */
+      }
+
+      .show-copied {
+        opacity: 1;
       }
 
       .app-button {
@@ -197,8 +273,21 @@
       <h1><span id="partner-name-android"></span>Neurture</h1>
       <p class="partnership">Mental Health Awareness Month 2025</p>
 
-      <h2>Your Promo Code</h2>
-      <div class="promo-code" id="promo-code-android">MHM25</div>
+      <div class="code-container">
+        <div class="code-row">
+          <span class="code-label">Code:</span>
+          <div
+            class="promo-code"
+            id="promo-code-android"
+            onclick="copyToClipboard('promo-code-android', 'MHM25')"
+          >
+            <span class="code-text">MHM25</span>
+            <div id="android-copy-hint" class="copy-hint">
+              <span class="copy-icon"></span>press to copy
+            </div>
+          </div>
+        </div>
+      </div>
       <p>Use this code for your first month free of Neurture Premium.</p>
       <p id="exclusive-android" style="display: none">
         Exclusive for <span class="partner-name"></span> members!
@@ -223,8 +312,21 @@
       <h1><span id="partner-name-desktop"></span>Neurture</h1>
       <p class="partnership">Mental Health Awareness Month 2025</p>
 
-      <h2>Your Promo Code</h2>
-      <div class="promo-code" id="promo-code-desktop">MHM25</div>
+      <div class="code-container">
+        <div class="code-row">
+          <span class="code-label">Code:</span>
+          <div
+            class="promo-code"
+            id="promo-code-desktop"
+            onclick="copyToClipboard('promo-code-desktop', 'MHM25')"
+          >
+            <span class="code-text">MHM25</span>
+            <div id="desktop-copy-hint" class="copy-hint">
+              <span class="copy-icon"></span>click to copy
+            </div>
+          </div>
+        </div>
+      </div>
       <p>Use this code for your first month free of Neurture Premium.</p>
       <p id="exclusive-desktop" style="display: none">
         Exclusive for <span class="partner-name"></span> members!
@@ -314,8 +416,29 @@
         const promoCode = getUrlParameter("promo") || "MHM25";
 
         // Apply promo code
-        document.getElementById("promo-code-android").textContent = promoCode;
-        document.getElementById("promo-code-desktop").textContent = promoCode;
+        const androidPromoElement = document
+          .getElementById("promo-code-android")
+          .querySelector(".code-text");
+        const desktopPromoElement = document
+          .getElementById("promo-code-desktop")
+          .querySelector(".code-text");
+
+        androidPromoElement.textContent = promoCode;
+        desktopPromoElement.textContent = promoCode;
+
+        // Update click handlers with the correct promo code
+        document
+          .getElementById("promo-code-android")
+          .setAttribute(
+            "onclick",
+            `copyToClipboard('promo-code-android', '${promoCode}')`
+          );
+        document
+          .getElementById("promo-code-desktop")
+          .setAttribute(
+            "onclick",
+            `copyToClipboard('promo-code-desktop', '${promoCode}')`
+          );
 
         // Update App Store URL with promo code
         const appleRedemptionUrl = `https://apps.apple.com/redeem?ctx=offercodes&id=6467687675&code=${promoCode}`;
@@ -351,6 +474,40 @@
             partnerSpans[i].textContent = partnerName;
           }
         }
+      }
+
+      // Function to copy text to clipboard
+      function copyToClipboard(elementId, originalText) {
+        const element = document.getElementById(elementId);
+        const isMobile = elementId === "promo-code-android";
+        const copyHintId = isMobile ? "android-copy-hint" : "desktop-copy-hint";
+        const copyHint = document.getElementById(copyHintId);
+        const codeTextElement = element.querySelector(".code-text");
+
+        // Create a temporary textarea element to handle the copy operation
+        const textarea = document.createElement("textarea");
+        textarea.value = originalText;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "absolute";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+
+        // Select and copy the text
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        // Save the original content and hide the copy hint
+        copyHint.style.display = "none";
+
+        // Show feedback by changing the content
+        codeTextElement.textContent = "Code copied!";
+
+        // Reset after 1.5 seconds
+        setTimeout(() => {
+          codeTextElement.textContent = originalText;
+          copyHint.style.display = "flex";
+        }, 1500);
       }
 
       // Execute when the page loads
