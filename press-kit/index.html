@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press Kit - Neurture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+      }
+
+      body {
+        background-color: #f8f9fa;
+      }
+
+      header {
+        background-color: #0a0a23;
+        padding: 1rem 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        background-color: #4caf50;
+        border-radius: 50%;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 2rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding-bottom: 5px;
+      }
+
+      nav ul li a.active {
+        border-bottom: 2px solid white;
+      }
+
+      .press-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .press-content h1 {
+        font-size: 3rem;
+        color: #0a0a23;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .top-row {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4rem;
+        flex-wrap: wrap;
+      }
+
+      .bottom-row {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .media-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+      }
+
+      .media-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        object-fit: contain;
+      }
+
+      .logo-container {
+        width: 350px;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .logo-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .phone-container {
+        width: 350px;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .phone-container img {
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .media-caption {
+        font-size: 1.1rem;
+        color: #333;
+        text-align: center;
+      }
+
+      .podcast-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4rem;
+      }
+
+      .podcast-logo {
+        max-width: 150px;
+        margin-right: 2rem;
+      }
+
+      footer {
+        background-color: #0a0a23;
+        color: white;
+        padding: 3rem 10%;
+        margin-top: 4rem;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .footer-section a:hover {
+        color: white;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/images/neurture-icon.png"
+          alt="Neurture"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+          "
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Team</a></li>
+          <li>
+            <a href="https://theadaptivemind.com" target="_blank">Podcast</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="press-content">
+        <h1>Media Press Kit</h1>
+
+        <div class="top-row">
+          <div class="media-item">
+            <div class="logo-container">
+              <img src="/images/neurture-icon.png" alt="Neurture App Logo" />
+            </div>
+            <p class="media-caption">Neurture App Logo</p>
+          </div>
+
+          <div class="media-item">
+            <div class="logo-container">
+              <img
+                src="/images/neurture-logo-transparent.png"
+                alt="Transparent Neurture App Logo"
+              />
+            </div>
+            <p class="media-caption">Transparent Neurture App Logo</p>
+          </div>
+
+          <div class="media-item">
+            <div class="logo-container">
+              <img
+                src="/images/the-adaptive-mind.png"
+                alt="The Adaptive Mind Podcast"
+              />
+            </div>
+            <p class="media-caption">The Adaptive Mind Podcast</p>
+          </div>
+
+          <div class="media-item">
+            <div class="logo-container">
+              <img
+                src="/images/the-adaptive-mind-dark.png"
+                alt="The Adaptive Mind Podcast Dark"
+              />
+            </div>
+            <p class="media-caption">The Adaptive Mind Podcast Dark</p>
+          </div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="media-item">
+            <div class="phone-container">
+              <img
+                src="/images/iPhone-13.png"
+                alt="Neurture on 3D rendered phone"
+              />
+            </div>
+            <p class="media-caption">Neurture on 3D rendered phone</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Neurture</h3>
+          <p>contact@neurtureapp.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Company</h3>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="/press-kit">Press Kit</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
