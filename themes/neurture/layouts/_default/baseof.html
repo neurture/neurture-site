@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/images/neurture-icon.png"
+          alt="Neurture"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+          "
+        />
+      </div>
+      <nav>
+        <ul>
+          {{ $currentPage := . }} {{ range .Site.Menus.main }}
+          <li>
+            <a
+              href="{{ .URL }}"
+              {{
+              if
+              eq
+              $currentPage.RelPermalink
+              .URL
+              }}class="active"
+              {{
+              end
+              }}
+            >
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </header>
+
+    <main>{{ block "main" . }}{{ end }}</main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Neurture</h3>
+          <p>contact@neurtureapp.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Company</h3>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="/press-kit">Press Kit</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".faq-question").forEach((question) => {
+          question.addEventListener("click", () => {
+            const item = question.parentElement;
+            item.classList.toggle("active");
+          });
+        });
+
+        // Set the first FAQ item to active by default
+        const firstFaqItem = document.querySelector(".faq-item");
+        if (firstFaqItem) {
+          firstFaqItem.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>
