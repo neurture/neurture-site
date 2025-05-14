@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Neurture - Break habits with science and self-compassion</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Neurture - Break habits with science and self-compassion</description>
+    <title>Pre-2010 on Neurture - Break habits with science and self-compassion</title>
+    <link>http://localhost:1313/tags/pre-2010/</link>
+    <description>Recent content in Pre-2010 on Neurture - Break habits with science and self-compassion</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 16 Apr 2024 15:13:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/pre-2010/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How habits actually start</title>
       <link>http://localhost:1313/podcast/how-habits-actually-start/</link>
@@ -21,48 +21,6 @@
       <pubDate>Tue, 16 Apr 2024 15:13:00 +0100</pubDate>
       <guid>http://localhost:1313/podcast/how-habits-actually-start/</guid>
       <description>&lt;p&gt;Creating new habits and breaking old ones can be complex but understanding the psychology and neuroscience behind habit formation can be insightful. Habits, whether developed mindfully or otherwise, play a crucial role in our lives, significantly influencing our behaviors and decisions. This post delves into the essentials of habit formation, offering a concise overview to help you understand and navigate the process of creating positive lifestyle changes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-basics-of-habit-formation&#34;&gt;The Basics of Habit Formation&lt;/h2&gt;&#xA;&lt;p&gt;Habits can emerge passively from our environment or through deliberate actions. For instance, passive habits might develop from repeated exposure to specific stimuli, like adapting to high altitudes gradually. In contrast, active habits form through intentional effort and repetition, becoming ingrained skills, such as a gymnast perfecting routines through practice. At the core of habit formation is the brain&amp;rsquo;s basal ganglia, a group of nuclei instrumental in coordinating voluntary movements and facilitating the transition from deliberate actions to automatic behaviors. This process is vital for survival, enabling quick decision-making in critical situations. Moreover, positive reinforcement, often signaled by the release of dopamine, a &amp;ldquo;feel-good&amp;rdquo; neurotransmitter, encourages the repetition of rewarding behaviors, cementing them into habits.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Our Team</title>
-      <link>http://localhost:1313/team/</link>
-      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/team/</guid>
-      <description>&lt;p&gt;Neurture was founded by a team passionate about making mental health resources accessible and breaking the stigma around addictive behaviors.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Press Kit</title>
-      <link>http://localhost:1313/press-kit/</link>
-      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/press-kit/</guid>
-      <description>&lt;h1 id=&#34;neurture-press-kit&#34;&gt;Neurture Press Kit&lt;/h1&gt;&#xA;&lt;p&gt;Thank you for your interest in Neurture. Below you&amp;rsquo;ll find resources for media coverage.&lt;/p&gt;&#xA;&lt;h2 id=&#34;about-neurture&#34;&gt;About Neurture&lt;/h2&gt;&#xA;&lt;p&gt;Neurture is an app designed to help people break habits and address addictive behaviors through science and self-compassion. Our app combines evidence-based approaches with AI technology to provide personalized support.&lt;/p&gt;&#xA;&lt;h2 id=&#34;brand-assets&#34;&gt;Brand Assets&lt;/h2&gt;&#xA;&lt;h3 id=&#34;logo&#34;&gt;Logo&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://localhost:1313/images/neurture-icon.png&#34;&gt;Download Logo (PNG)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://localhost:1313/images/neurture-logo.svg&#34;&gt;Download Logo (SVG)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;app-screenshots&#34;&gt;App Screenshots&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://localhost:1313/images/iPhone-13.png&#34;&gt;Screenshot 1&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://localhost:1313/images/picture-journal.png&#34;&gt;Screenshot 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Research-based resources to help quit or reduce unwanted behaviors&lt;/li&gt;&#xA;&lt;li&gt;AI coach for personalized guidance&lt;/li&gt;&#xA;&lt;li&gt;Meditations and affirmations to build healthier habits&lt;/li&gt;&#xA;&lt;li&gt;Journal feature with photo digitization&lt;/li&gt;&#xA;&lt;li&gt;Personal plan development and tracking&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;press-contact&#34;&gt;Press Contact&lt;/h2&gt;&#xA;&lt;p&gt;For press inquiries, please contact:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Privacy Policy</title>
-      <link>http://localhost:1313/privacy-policy/</link>
-      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/privacy-policy/</guid>
-      <description>&lt;h1 id=&#34;privacy-policy&#34;&gt;Privacy Policy&lt;/h1&gt;&#xA;&lt;p&gt;At Neurture, we take your privacy seriously. This Privacy Policy describes how we collect, use, and handle your information when you use our services.&lt;/p&gt;&#xA;&lt;h2 id=&#34;information-we-collect&#34;&gt;Information We Collect&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Personal Information&lt;/strong&gt;: Information you provide to us such as your name, email address, and profile information.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Usage Data&lt;/strong&gt;: Information about how you use our app and services.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Device Information&lt;/strong&gt;: Information about the device you use to access our services.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-we-use-your-information&#34;&gt;How We Use Your Information&lt;/h2&gt;&#xA;&lt;p&gt;We use your information to:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Post 3</title>
-      <link>http://localhost:1313/posts/post-3/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-3/</guid>
-      <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Post 2</title>
-      <link>http://localhost:1313/posts/post-2/</link>
-      <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-2/</guid>
-      <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Post 1</title>
-      <link>http://localhost:1313/posts/post-1/</link>
-      <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-1/</guid>
-      <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Copyright</title>

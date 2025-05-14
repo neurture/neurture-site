@@ -1,8 +1,8 @@
----
-title: "Privacy Policy"
-date: 2023-11-25
-draft: false
----
++++
+date = '2023-11-25'
+draft = false
+title = 'Privacy Policy'
++++
 
 # Privacy Policy
 

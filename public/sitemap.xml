@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/podcast/how-habits-actually-start/</loc>
+    <lastmod>2024-04-16T15:13:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/podcast/how-habits-actually-start/</loc>
+    <lastmod>2024-04-16T15:13:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/pre-2010/</loc>
+    <lastmod>2024-04-16T15:13:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-04-16T15:13:00+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2023-11-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -26,9 +38,6 @@
     <loc>http://localhost:1313/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
@@ -39,5 +48,19 @@
     <lastmod>2023-01-01T08:30:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/copyright/</loc>
+  </url><url>
+    <loc>http://localhost:1313/download-3-breathing-techniques/</loc>
+  </url><url>
+    <loc>http://localhost:1313/employers/</loc>
+  </url><url>
+    <loc>http://localhost:1313/rehab/</loc>
+  </url><url>
+    <loc>http://localhost:1313/universities/</loc>
+  </url><url>
+    <loc>http://localhost:1313/support/</loc>
+  </url><url>
+    <loc>http://localhost:1313/terms/</loc>
   </url>
 </urlset>
