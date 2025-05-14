@@ -1,1 +1,23 @@
-node_modules
+# Node.js dependencies
+node_modules/
+
+# Hugo build directory
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Generated files
+hugo_stats.json
+
+# Temporary files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.*
+
+# Local Netlify folder
+.netlify/
