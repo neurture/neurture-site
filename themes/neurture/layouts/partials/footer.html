@@ -1,0 +1,40 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Neurture</h3>
+      <p>contact@neurtureapp.com</p>
+    </div>
+    <div class="footer-section">
+      <h3>Company</h3>
+      {{ range .Site.Menus.footer_company }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+    <div class="footer-section">
+      <h3>For Organizations</h3>
+      {{ range .Site.Menus.footer_organizations }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+  </div>
+  <div class="copyright">
+    <p>© {{ now.Format "2006" }} Neurture. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".faq-question").forEach((question) => {
+      question.addEventListener("click", () => {
+        const item = question.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+
+    // Set the first FAQ item to active by default
+    const firstFaqItem = document.querySelector(".faq-item");
+    if (firstFaqItem) {
+      firstFaqItem.classList.add("active");
+    }
+  });
+</script>

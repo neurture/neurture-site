@@ -1,1 +1,8 @@
-{{ define "main" }} {{ partial "home.html" . }} {{ end }}
+{{ define "main" }}
+<div class="hero">
+  <div class="hero-content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
