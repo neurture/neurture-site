@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ partial "head.html" . }}
     <meta name="description" content="{{ .Site.Params.description }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,8 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather&display=swap"
       rel="stylesheet"
     />
-    {{ $css := resources.Get "css/main.css" | resources.Minify }}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>

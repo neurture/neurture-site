@@ -7,9 +7,14 @@
     "generate": "node scripts/generate-html.js"
   },
   "devDependencies": {
-    "live-server": "1.2.1",
+    "@tailwindcss/cli": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.7",
+    "autoprefixer": "^10.4.21",
     "js-yaml": "^4.1.0",
-    "jsdom": "^22.1.0"
+    "jsdom": "^22.1.0",
+    "live-server": "1.2.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7"
   },
   "dependencies": {}
 }
