@@ -2,15 +2,12 @@
 
 ## TODO
 
-- Fix homepage styling
-- Remove Blog from nav
-- set header color to #140f35
-- make a color palette
 - set small screen breakpoint to 800px
 - header:
   - set hamburger menu to show on small screens
   - [small screen] padding: 48px;
   - [medium screen] padding: 8.8px 16px;
+- There's a bunch of repeated code that I'm just not sure how to reconcile. e.g. index.md
 
 ### Maybe
 

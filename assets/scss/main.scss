@@ -27,8 +27,8 @@ main {
 }
 
 header {
-  background-color: #0a0a23;
-  padding: 1rem 10%;
+  background-color: #140f35;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,8 +36,8 @@ header {
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -495,6 +495,17 @@ footer {
   .footer-container {
     flex-direction: column;
     gap: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 48px;
+  }
+  
+  .logo {
+    width: 30px;
+    height: 30px;
   }
 }
 
