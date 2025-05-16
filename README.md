@@ -1,72 +1,27 @@
-# Neurture Website
+# Neurture website
 
-This is the codebase for the Neurture website, built with [Hugo](https://gohugo.io/).
+## TODO
 
-## Getting Started
+- Fix homepage styling
+- Remove Blog from nav
+- set header color to #140f35
+- make a color palette
+- set small screen breakpoint to 800px
+- header:
+  - set hamburger menu to show on small screens
+  - [small screen] padding: 48px;
+  - [medium screen] padding: 8.8px 16px;
 
-### Prerequisites
+### Maybe
 
-- [Hugo](https://gohugo.io/installation/) (Extended version recommended)
-- Git
+#### Component extraction
 
-### Local Development
+Use Hugo partials for repeatable UI chunks; Tailwind’s @apply inside SCSS can tidy up long class strings.
 
-1. Clone this repository
+#### Accessibility
 
-```bash
-git clone https://github.com/your-username/neurture-site.git
-cd neurture-site
-```
+Pair Tailwind with the `@tailwindcss/typography` and `@tailwindcss/forms` plugins for sensible defaults.
 
-2. Start the Hugo development server
+#### Caching
 
-```bash
-hugo server -D
-```
-
-This will start a local development server at http://localhost:1313/ with hot reloading enabled.
-
-## Site Structure
-
-- `content/`: Contains all the content for the site
-- `themes/neurture/`: Custom theme for the site
-  - `layouts/`: HTML templates
-  - `assets/`: CSS, JS, and other assets
-- `static/`: Static files like images
-- `hugo.toml`: Hugo configuration file
-
-## Adding Content
-
-### Creating a New Page
-
-```bash
-hugo new content/page-name/index.md
-```
-
-Then edit the generated markdown file with your content.
-
-### Front Matter
-
-Each content file starts with front matter:
-
-```yaml
----
-title: "Page Title"
-date: 2023-11-25
-draft: false
----
-```
-
-## Deployment
-
-To build the site for production:
-
-```bash
-hugo --minify
-```
-
-This will generate the static site in the `public/` directory, which you can then deploy to your hosting provider.
-
-## License
-
-[MIT](LICENSE)
+Keep the `fingerprint` pipe so users always get the new asset while enjoying long-term-cache hashes in production.

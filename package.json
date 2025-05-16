@@ -4,7 +4,11 @@
   "description": "Neurture website",
   "scripts": {
     "start": "live-server --port=8000 --no-browser --ignore=.git/**",
-    "generate": "node scripts/generate-html.js"
+    "clean": "rm -rf public resources/_gen",
+    "dev": "hugo server --disableFastRender --gc --bind 0.0.0.0",
+    "dev:cli": "tailwindcss -i ./assets/tailwind/tailwind.css -o ./assets/tailwind/tailwind.generated.css --watch",
+    "build": "NODE_ENV=production hugo --gc --minify",
+    "build:cli": "NODE_ENV=production tailwindcss -i ./assets/tailwind/tailwind.css -o ./assets/tailwind/tailwind.generated.css --minify"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.7",
@@ -14,6 +18,7 @@
     "jsdom": "^22.1.0",
     "live-server": "1.2.1",
     "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.1.7"
   },
   "dependencies": {}
