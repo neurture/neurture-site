@@ -461,6 +461,19 @@
         color: white;
         text-decoration: underline;
       }
+
+      .expert-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #6b7280;
+        font-family: "Lato", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -793,9 +806,12 @@
       </section>
 
       <section class="experts-section">
-        <h2>Trusted by Behavioral Health Experts</h2>
+        <h2>Recommended by Clinical Experts</h2>
         <div class="experts-container">
           <div class="expert-card">
+            <div class="expert-image-container">
+              <div class="expert-placeholder">AD</div>
+            </div>
             <h3>Amanda Dean LMSW</h3>
             <p>
               "Having access to evidence-based resources like urge-surfing is
@@ -818,6 +834,22 @@
               "The AI chat was validating and offered some helpful reframing,
               much like I would use with my clients. It then guided me to some
               helpful meditations. I was very impressed!"
+            </p>
+          </div>
+
+          <div class="expert-card">
+            <div class="expert-image-container">
+              <img
+                src="images/team/sarah.jpg"
+                alt="Dr. Sarah Coe-Odess"
+                class="expert-image"
+              />
+            </div>
+            <h3>Dr. Sarah Coe-Odess</h3>
+            <p>
+              "Neurture is a valuable, evidence-based resource with structured
+              tools that empower users to break unhealthy patterns and pursue a
+              more intentional, fulfilling life."
             </p>
           </div>
         </div>
