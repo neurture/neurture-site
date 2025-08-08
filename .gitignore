@@ -22,3 +22,6 @@ hugo_stats.json
 # Local Netlify folder
 .netlify/
 .next/
+
+# Next.js static export output
+out/
