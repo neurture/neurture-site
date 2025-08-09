@@ -166,6 +166,10 @@ export default function HomePage() {
           </div>
         </section>
 
+
+        {/* FAQ Section */}
+        <FAQ />
+
         {/* Experts Section */}
         <section className="bg-[#f8f9fa] py-20 px-8 my-16 text-center">
           <h2 className="mb-12 text-[2.5rem] text-[#0a0a23]">Recommended by Clinical Experts</h2>
@@ -257,9 +261,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* FAQ Section */}
-        <FAQ />
       </main>
       <Footer />
     </>
