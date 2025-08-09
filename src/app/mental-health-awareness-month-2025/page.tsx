@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-export default function MentalHealthAwarenessPage() {
+function MentalHealthAwarenessContent() {
   const searchParams = useSearchParams();
   const [deviceType, setDeviceType] = useState<'loading' | 'ios' | 'android' | 'desktop'>('loading');
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -213,5 +213,18 @@ export default function MentalHealthAwarenessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function MentalHealthAwarenessPage() {
+  return (
+    <Suspense fallback={
+      <div className="bg-[#f8f9fa] min-h-screen flex flex-col items-center justify-center p-8">
+        <div className="w-12 h-12 border-4 border-gray-300 border-t-[#0a0a23] rounded-full animate-spin mb-4"></div>
+        <p className="text-lg">Loading...</p>
+      </div>
+    }>
+      <MentalHealthAwarenessContent />
+    </Suspense>
   );
 }
