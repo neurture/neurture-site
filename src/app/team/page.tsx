@@ -1,8 +1,44 @@
+import Image from "next/image";
+
 export default function TeamPage() {
   return (
-    <div>
-      <h1>Team</h1>
-      <p>Team page content will go here</p>
-    </div>
+    <main className="bg-[#f8f9fa]">
+      <section className="max-w-[1000px] mx-auto my-16 px-8">
+        <h1 className="text-[3rem] text-[#0a0a23] text-center mb-12 font-serif">Meet the Team</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-8">
+          <div className="bg-white rounded-[10px] overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+            <Image
+              src="/images/team/brady.png"
+              alt="Brady Dowling"
+              width={800}
+              height={260}
+              className="w-full h-[260px] object-contain"
+            />
+            <div className="p-6">
+              <h2 className="text-[1.5rem] text-[#0a0a23] mb-3 font-serif">Brady Dowling</h2>
+              <p className="text-[1.1rem] leading-[1.6] text-[#333]">
+                Brady founded Neurture, after working as a software engineer for 10+ years, including time at Amazon, Shopify, and Modern Health. Having felt a strong pull toward technology his whole life, it's his personal mission to bring research-based digital resources to the habits and addictions space. Sobriety trackers and motivational quote apps are not going to cut it.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-[10px] overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+            <Image
+              src="/images/team/sarah.jpg"
+              alt="Sarah Coe-Odess"
+              width={800}
+              height={260}
+              className="w-full h-[260px] object-contain"
+            />
+            <div className="p-6">
+              <h2 className="text-[1.5rem] text-[#0a0a23] mb-3 font-serif">Sarah Coe-Odess</h2>
+              <p className="text-[1.1rem] leading-[1.6] text-[#333]">
+                Dr. Sarah Coe-Odess is a licensed clinical psychologist at Massachusetts General Hospital and Instructor in Psychology at Harvard Medical School. With expertise in cognitive behavioral therapy (CBT), exposure therapy, and digital mental health interventions, she brings extensive clinical knowledge to Neurture's approach. Her research focuses on developing scalable digital interventions to improve access to evidence-based treatments, making her uniquely qualified to help translate therapy principles into effective digital tools.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

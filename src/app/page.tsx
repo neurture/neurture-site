@@ -1,13 +1,11 @@
 import Image from 'next/image';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
+
 import FAQ from '@/components/FAQ';
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main className="bg-[#f8f9fa]">
         {/* Hero Section */}
         <section className="flex flex-col lg:flex-row py-[5%] px-8 items-center justify-between gap-8 mb-8 max-w-[1200px] mx-auto">
           <div className="flex-1 order-2 lg:order-1">
@@ -261,8 +259,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }
