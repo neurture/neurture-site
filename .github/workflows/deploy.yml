@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build static export (output: export)
+      - name: "Build static export (output: export)"
         run: yarn build:ssg
 
       - name: Include CNAME for custom domain
