@@ -37,7 +37,7 @@ export default function Header() {
               <Link
                 href="/team"
                 className={`text-white no-underline text-lg pb-[5px] ${
-                  pathname === "/team" 
+                  pathname === "/team" || pathname === "/team/"
                     ? "border-b-2 border-white" 
                     : "hover:border-b-2 hover:border-white"
                 }`}
