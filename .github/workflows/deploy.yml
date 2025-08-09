@@ -31,7 +31,9 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: "Build static export (output: export)"
-        run: yarn build:ssg
+        run: |
+          yarn build:ssg
+          touch out/.nojekyll
 
       - name: Include CNAME for custom domain
         if: ${{ hashFiles('CNAME') != '' }}
