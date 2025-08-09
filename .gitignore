@@ -1,13 +1,13 @@
 # Node.js dependencies
 node_modules/
 
-# Hugo build directory (legacy - commented out as we now use public/ for Next.js)
-# public/
-resources/_gen/
-.hugo_build.lock
+# Next.js
+.next/
+out/
 
-# Generated files
-hugo_stats.json
+# Environment files
+.env
+.env.*
 
 # Temporary files
 .DS_Store
@@ -15,13 +15,15 @@ hugo_stats.json
 *.swo
 *~
 
-# Environment files
-.env
-.env.*
+# IDE files
+.vscode/
+.idea/
 
-# Local Netlify folder
-.netlify/
-.next/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Next.js static export output
-out/
+# Testing
+coverage/
+.nyc_output/
