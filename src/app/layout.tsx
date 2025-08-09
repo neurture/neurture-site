@@ -19,6 +19,13 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   title: "Neurture - Break habits with science and self-compassion",
   description: "Learn how to quit or reduce behaviors using research-based resources. Get support from Neurture's AI coach and develop a personal plan to break habits.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' }
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
