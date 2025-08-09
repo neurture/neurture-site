@@ -62,7 +62,7 @@ export default function FAQ() {
   return (
     <section className="bg-[#0a0a23] text-white py-20">
       <div className="max-w-[1000px] mx-auto px-8">
-        <h2 className="text-5xl mb-12 text-left font-serif">Frequently Asked Questions</h2>
+        <h2 className="text-[3rem] mb-12 text-left">Frequently Asked Questions</h2>
         <div className="w-full">
           {faqData.map((faq, index) => (
             <div key={index} className="border-b border-white/20 py-6">

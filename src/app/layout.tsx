@@ -11,7 +11,7 @@ const lato = Lato({
 const merriweather = Merriweather({
   variable: "--font-merriweather",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.variable} ${merriweather.variable} antialiased`}
+        className={`${lato.variable} ${merriweather.variable} ${lato.className}`}
       >
         {children}
       </body>

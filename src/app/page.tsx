@@ -7,11 +7,11 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-[#f8f9fa]">
         {/* Hero Section */}
-        <section className="flex flex-col lg:flex-row py-[5%] px-[10%] items-center justify-between gap-8 mb-8">
+        <section className="flex flex-col lg:flex-row py-[5%] px-8 items-center justify-between gap-8 mb-8 max-w-[1200px] mx-auto">
           <div className="flex-1 order-2 lg:order-1">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-[#0a0a23] mb-8 leading-[1.2] font-serif">
+            <h1 className="font-serif font-bold text-[3rem] text-[#0a0a23] mb-8 leading-[1.2]">
               Break habits with science and self-compassion
             </h1>
             <ul className="features-list mb-8 space-y-6">
@@ -71,7 +71,7 @@ export default function HomePage() {
         </section>
 
         {/* Video Section */}
-        <section className="my-16 text-center max-w-[1100px] mx-auto px-4">
+        <section className="my-16 text-center max-w-[1200px] mx-auto px-4">
           <div className="relative pb-[56.25%] h-0 overflow-hidden max-w-full">
             <iframe
               width="1100"
@@ -97,7 +97,7 @@ export default function HomePage() {
             />
           </div>
           <div className="flex-1">
-            <h2 className="text-5xl text-[#0a0a23] mb-8 leading-[1.2]">
+            <h2 className="font-serif text-5xl text-[#0a0a23] mb-8 leading-[1.2]">
               Understand your brain, change your brain
             </h2>
             <ul className="features-list mb-8 space-y-4">
@@ -142,7 +142,7 @@ export default function HomePage() {
           <div className="flex justify-center flex-wrap gap-8 max-w-[1200px] mx-auto">
             <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
               <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-xl leading-[1.6] text-[#333] mb-6 font-medium">
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
                 "I see this app as being something I will use to reach many of my goals and manage my habits."
               </p>
               <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
@@ -150,7 +150,7 @@ export default function HomePage() {
 
             <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
               <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-xl leading-[1.6] text-[#333] mb-6 font-medium">
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
                 "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
               </p>
               <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
@@ -158,7 +158,7 @@ export default function HomePage() {
 
             <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
               <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-xl leading-[1.6] text-[#333] mb-6 font-medium">
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
                 "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
               </p>
               <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
@@ -168,7 +168,7 @@ export default function HomePage() {
 
         {/* Experts Section */}
         <section className="bg-[#f8f9fa] py-20 px-8 my-16 text-center">
-          <h2 className="mb-12 text-4xl text-[#0a0a23] font-serif">Recommended by Clinical Experts</h2>
+          <h2 className="mb-12 text-[2.5rem] text-[#0a0a23]">Recommended by Clinical Experts</h2>
           <div className="flex justify-center flex-wrap gap-8 max-w-[1200px] mx-auto">
             <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
               <div className="w-[150px] h-[150px] rounded-full overflow-hidden mb-6">
@@ -180,7 +180,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4 font-serif">Amanda Raybould, MSW, LICSW</h3>
+              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4">Amanda Raybould, MSW, LICSW</h3>
               <div className="text-base text-[#6b7280] mb-6 font-normal">Arlington School</div>
               <p className="text-lg leading-[1.6] text-[#333]">
                 "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!"
@@ -197,7 +197,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4 font-serif">Dr. Sarah Coe-Odess</h3>
+              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4">Dr. Sarah Coe-Odess</h3>
               <div className="text-base text-[#6b7280] mb-6 font-normal">Mass General Hospital</div>
               <p className="text-lg leading-[1.6] text-[#333]">
                 "Neurture is a valuable, evidence-based resource with structured tools that empower users to break unhealthy patterns and pursue a more intentional, fulfilling life."
@@ -208,7 +208,7 @@ export default function HomePage() {
               <div className="w-[150px] h-[150px] rounded-full overflow-hidden mb-6 bg-[#e5e7eb] flex items-center justify-center">
                 <span className="text-3xl font-semibold text-[#6b7280]">AD</span>
               </div>
-              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4 font-serif">Amanda Dean LMSW</h3>
+              <h3 className="text-[1.8rem] text-[#0a0a23] mb-4">Amanda Dean LMSW</h3>
               <p className="text-lg leading-[1.6] text-[#333]">
                 "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7."
               </p>
