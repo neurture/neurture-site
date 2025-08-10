@@ -2,17 +2,21 @@ import Image from 'next/image';
 
 
 import FAQ from '@/components/FAQ';
+import PlatformCTA from '@/components/PlatformCTA';
 
 export default function HomePage() {
   return (
     <>
         {/* Hero Section */}
         <section className="flex flex-col lg:flex-row py-[5%] px-8 items-center justify-between gap-8 mb-8 max-w-[1200px] mx-auto">
-          <div className="flex-1 order-2 lg:order-1">
-            <h1 className="font-serif font-bold text-[3rem] text-[#0a0a23] mb-8 leading-[1.2]">
+          <div className="flex-1 order-1 lg:order-1">
+            <h1 className="font-serif font-bold text-[2.5rem] sm:text-[3rem] text-[#0a0a23] mb-6 leading-[1.2]">
               Break habits with science and self-compassion
             </h1>
-            <ul className="features-list mb-8 space-y-6">
+            <div className="mb-6">
+              <PlatformCTA />
+            </div>
+            <ul className="features-list mb-8 space-y-4">
               <li>
                 Learn how to quit or reduce behaviors using research-based resources
               </li>
@@ -23,28 +27,8 @@ export default function HomePage() {
                 Develop and maintain a personal plan to break habits and address addictive behaviors
               </li>
             </ul>
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href="https://apps.apple.com/app/id6467687675">
-                <Image
-                  src="/images/download-on-the-app-store.svg"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame">
-                <Image
-                  src="/images/get-it-on-google-play.png"
-                  alt="Get it on Google Play"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
-            </div>
           </div>
-          <div className="flex-1 flex justify-center order-1 lg:order-2">
+          <div className="flex-1 flex justify-center order-2 lg:order-2">
             <Image
               src="/images/iPhone-13.png"
               alt="Neurture app screenshot on iPhone"
@@ -112,25 +96,8 @@ export default function HomePage() {
                 Easily digitize handwritten journal entries
               </li>
             </ul>
-            <div className="flex gap-4 mt-8">
-              <a href="https://apps.apple.com/app/id6467687675">
-                <Image
-                  src="/images/download-on-the-app-store.svg"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame">
-                <Image
-                  src="/images/get-it-on-google-play.png"
-                  alt="Get it on Google Play"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
+            <div className="mt-8">
+              <PlatformCTA />
             </div>
           </div>
         </section>
@@ -229,15 +196,7 @@ export default function HomePage() {
                 height={220}
                 className="w-[220px] h-auto"
               />
-              <a href="https://apps.apple.com/app/id6467687675">
-                <Image
-                  src="/images/download-on-the-app-store.svg"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
+              <PlatformCTA />
             </div>
             <div className="flex flex-col items-center gap-6">
               <Image
@@ -247,15 +206,7 @@ export default function HomePage() {
                 height={220}
                 className="w-[220px] h-auto"
               />
-              <a href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame">
-                <Image
-                  src="/images/get-it-on-google-play.png"
-                  alt="Get it on Google Play"
-                  width={150}
-                  height={50}
-                  className="h-[50px] w-auto block"
-                />
-              </a>
+              <PlatformCTA />
             </div>
           </div>
         </section>
