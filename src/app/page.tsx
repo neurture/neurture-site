@@ -187,7 +187,7 @@ export default function HomePage() {
 
         {/* QR Section */}
         <section className="py-20 px-8 text-center flex flex-col items-center mb-12">
-          <div className="flex justify-center gap-20 mb-8 w-full max-w-[800px]">
+          <div className="flex flex-col sm:flex-row justify-center gap-20 mb-8 w-full max-w-[800px]">
             <div className="flex flex-col items-center gap-6">
               <Image
                 src="/images/app-store-qr.jpg"
@@ -196,7 +196,15 @@ export default function HomePage() {
                 height={220}
                 className="w-[220px] h-auto"
               />
-              <PlatformCTA />
+              <a href="https://apps.apple.com/app/id6467687675" className="flex justify-center">
+                <Image
+                  src="/images/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  width={200}
+                  height={60}
+                  className="h-[58px] w-auto"
+                />
+              </a>
             </div>
             <div className="flex flex-col items-center gap-6">
               <Image
@@ -206,7 +214,15 @@ export default function HomePage() {
                 height={220}
                 className="w-[220px] h-auto"
               />
-              <PlatformCTA />
+              <a href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame" className="flex justify-center">
+                <Image
+                  src="/images/get-it-on-google-play.png"
+                  alt="Get it on Google Play"
+                  width={200}
+                  height={60}
+                  className="h-[58px] w-auto"
+                />
+              </a>
             </div>
           </div>
         </section>

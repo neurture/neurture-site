@@ -20,7 +20,7 @@ export default function Header() {
           />
         </div>
         <nav>
-          <ul className="flex items-center gap-10 list-none m-0 p-0">
+          <ul className="flex items-center gap-6 list-none m-0 p-0">
             <li>
               <Link
                 href="/"
