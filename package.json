@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "build:ssg": "next build",
+    "build": "next build && npm run clean-build",
+    "build:ssg": "next build && npm run clean-build",
+    "clean-build": "find out/ -name '*.txt' -delete 2>/dev/null || true",
     "start": "next start",
     "lint": "next lint"
   },
