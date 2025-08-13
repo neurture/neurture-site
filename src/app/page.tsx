@@ -13,8 +13,16 @@ export default function HomePage() {
             <h1 className="font-serif font-bold text-[2.5rem] sm:text-[3rem] text-[#0a0a23] mb-6 leading-[1.2]">
               Break habits with science and self-compassion
             </h1>
-            <div className="mb-6">
+            <div className="mb-4 lg:hidden">
               <PlatformCTA />
+            </div>
+            <div className="flex items-center justify-center gap-2 mb-6 text-sm text-[#6b7280] text-center lg:hidden">
+              <div className="flex items-center gap-1">
+                <span className="text-[#ffc107]">★★★★★</span>
+                <span className="font-medium">4.7</span>
+              </div>
+              <span>•</span>
+              <span>App Store Rating</span>
             </div>
             <ul className="features-list mb-8 space-y-4">
               <li>
@@ -27,6 +35,17 @@ export default function HomePage() {
                 Develop and maintain a personal plan to break habits and address addictive behaviors
               </li>
             </ul>
+            <div className="hidden lg:block mb-4">
+              <PlatformCTA />
+            </div>
+            <div className="hidden lg:flex items-center justify-center gap-2 mb-6 text-sm text-[#6b7280] text-center">
+              <div className="flex items-center gap-1">
+                <span className="text-[#ffc107]">★★★★★</span>
+                <span className="font-medium">4.7</span>
+              </div>
+              <span>•</span>
+              <span>App Store Rating</span>
+            </div>
           </div>
           <div className="flex-1 flex justify-center order-2 lg:order-2">
             <Image
@@ -36,6 +55,35 @@ export default function HomePage() {
               height={600}
               className="max-w-full h-auto max-h-[600px] w-auto"
             />
+          </div>
+        </section>
+
+        {/* Reviews Section */}
+        <section className="bg-[#f8f9fa] py-20 px-8 my-16">
+          <div className="flex justify-center flex-wrap gap-8 max-w-[1200px] mx-auto">
+            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
+              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
+                "I see this app as being something I will use to reach many of my goals and manage my habits."
+              </p>
+              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
+            </div>
+
+            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
+              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
+                "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
+              </p>
+              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
+            </div>
+
+            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
+              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
+              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
+                "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
+              </p>
+              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
+            </div>
           </div>
         </section>
 
@@ -102,34 +150,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Reviews Section */}
-        <section className="bg-[#f8f9fa] py-20 px-8 my-16">
-          <div className="flex justify-center flex-wrap gap-8 max-w-[1200px] mx-auto">
-            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
-              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
-                "I see this app as being something I will use to reach many of my goals and manage my habits."
-              </p>
-              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
-            </div>
-
-            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
-              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
-                "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
-              </p>
-              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
-            </div>
-
-            <div className="bg-[#f2f2f2] rounded-[10px] p-10 w-[350px] flex flex-col items-center text-center">
-              <h3 className="text-base text-[#333] mb-6 font-medium">App Store Review</h3>
-              <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
-                "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
-              </p>
-              <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
-            </div>
-          </div>
-        </section>
 
 
         {/* FAQ Section */}

@@ -66,7 +66,7 @@ export default function PlatformCTA() {
 
   // Fallback for other platforms
   return (
-    <div className="flex flex-col sm:flex-row gap-4 w-full items-center">
+    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
       <a href="https://apps.apple.com/app/id6467687675" className="flex justify-center">
         <Image
           src="/images/download-on-the-app-store.svg"
