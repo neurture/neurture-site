@@ -1,6 +1,6 @@
 export default function PlatformCTA() {
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto">
+    <div className="flex flex-col sm:flex-row items-center sm:gap-4 w-full sm:w-fit mx-auto">
       <a
         href="https://apps.apple.com/app/id6467687675"
         className="inline-flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-auto text-white bg-black hover:bg-neutral-900"

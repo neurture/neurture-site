@@ -89,7 +89,7 @@ export default function HomePage() {
             change with methods used by expert clinicians around the world.
           </p>
 
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <PlatformCTA />
           </div>
 
@@ -149,18 +149,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="flex justify-center mb-8">
-        <div className="bg-white p-12 text-center w-full max-w-[800px] mx-auto rounded-[5px] shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-          <iframe
-            src="https://embeds.beehiiv.com/a11ad291-2228-4830-a16a-bfeb7e456919"
-            data-test-id="beehiiv-embed"
-            width="100%"
-            height="320"
-            className="border-2 border-[#e5e7eb] rounded-[4px] m-0 bg-transparent"
-          />
-        </div>
-      </section>
 
       {/* Video Section */}
       <section className="my-16 text-center max-w-[1200px] mx-auto px-4">
@@ -178,7 +166,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="flex items-center justify-between max-w-[1200px] mx-auto my-24 px-8 gap-12">
+      <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between max-w-[1200px] mx-auto my-24 px-8 gap-12">
         <div className="flex-1 text-center">
           <Image
             src="/images/picture-journal.png"
@@ -280,9 +268,9 @@ export default function HomePage() {
       </section>
 
       {/* QR Section */}
-      <section className="py-20 px-8 text-center flex flex-col items-center mb-12">
-        <div className="flex flex-col sm:flex-row justify-center gap-20 mb-8 w-full max-w-[800px]">
-          <div className="flex flex-col items-center gap-6">
+      <section className="py-8 sm:py-20 px-8 text-center flex flex-col items-center mb-12">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-20 mb-8 w-full max-w-[800px]">
+          <div className="flex flex-col items-center gap-0 sm:gap-6">
             <Image
               src="/images/app-store-qr.jpg"
               alt="App Store QR Code"
@@ -311,7 +299,7 @@ export default function HomePage() {
               </div>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-0 sm:gap-6">
             <Image
               src="/images/play-store-qr.png"
               alt="Google Play QR Code"
