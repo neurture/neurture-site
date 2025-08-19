@@ -46,6 +46,18 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link
+                href="/partners"
+                className={`text-white no-underline text-lg pb-[5px] ${
+                  pathname === "/partners" || pathname === "/partners/"
+                    ? "border-b-2 border-white" 
+                    : "hover:border-b-2 hover:border-white"
+                }`}
+              >
+                Partners
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://theadaptivemind.com"
                 target="_blank"
