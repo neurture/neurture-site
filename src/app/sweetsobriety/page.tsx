@@ -125,7 +125,7 @@ export default function SweetSobrietyPage() {
       <FAQ />
 
       <ExpertsSection
-        title="Recommended by Eating Disorder Specialists"
+        title="Recommended by Clinical Experts"
         experts={experts}
       />
 
