@@ -2,7 +2,7 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { usePostHog } from "posthog-js/react";
 
@@ -35,21 +35,21 @@ if (typeof window !== "undefined") {
 // Component to handle manual pageview tracking
 function PostHogPageView() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const posthog = usePostHog();
 
   useEffect(() => {
     if (pathname && posthog) {
       let url = window.origin + pathname;
-      if (searchParams.toString()) {
-        url = url + `?${searchParams.toString()}`;
+      // Get search params safely without useSearchParams hook
+      if (typeof window !== "undefined" && window.location.search) {
+        url = url + window.location.search;
       }
       posthog.capture("$pageview", {
         $current_url: url,
         page_title: document.title,
       });
     }
-  }, [pathname, searchParams, posthog]);
+  }, [pathname, posthog]);
 
   return null;
 }
