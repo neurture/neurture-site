@@ -1,24 +1,37 @@
-# Neurture website
+# Neurture - Break Habits with Science-Backed Tools
 
-## TODO
+**Transform your relationship with harmful habits through evidence-based digital interventions.**
 
-- set small screen breakpoint to 800px
-- header:
-  - set hamburger menu to show on small screens
-  - [small screen] padding: 48px;
-  - [medium screen] padding: 8.8px 16px;
-- There's a bunch of repeated code that I'm just not sure how to reconcile. e.g. index.md
+## About Neurture
 
-### Maybe
+Neurture is a science-backed mobile app that helps people break habits and overcome addictions using methods validated by clinical psychologists. Whether you're struggling with emotional eating, screen addiction, substance use, or other harmful behaviors, Neurture provides personalized support through:
 
-#### Component extraction
+### Key Features
 
-Use Hugo partials for repeatable UI chunks; Tailwind’s @apply inside SCSS can tidy up long class strings.
+- **Evidence-Based Courses** - Content reviewed by clinical psychologists using CBT, ACT, and other proven methodologies
+- **AI-Powered Support** - 24/7 personalized conversations to work through cravings, triggers, and difficult emotions  
+- **Digital Journaling** - Track patterns, emotions, and progress with easy photo capture of handwritten entries
+- **Mindful Interventions** - Affirmations, meditations, and urge-surfing techniques for real-time support
 
-#### Accessibility
+### Clinical Validation
 
-Pair Tailwind with the `@tailwindcss/typography` and `@tailwindcss/forms` plugins for sensible defaults.
+Our approaches are recommended by licensed clinicians from:
+- Massachusetts General Hospital
+- Harvard Medical School
+- Arlington School
+- And other leading institutions
 
-#### Caching
+### Download Neurture
 
-Keep the `fingerprint` pipe so users always get the new asset while enjoying long-term-cache hashes in production.
+**App Store**: https://apps.apple.com/app/id6467687675  
+**Google Play**: https://play.google.com/store/apps/details?id=com.bradydowling.unshame
+
+### More Information
+
+- **Website**: https://neurture.app
+- **Podcast**: https://theadaptivemind.com
+- **Contact**: contact@neurtureapp.com
+
+---
+
+*If you're seeing this README instead of our website, please visit https://neurture.app directly or contact us at the email above.*
