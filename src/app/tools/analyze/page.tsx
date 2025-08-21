@@ -44,6 +44,7 @@ const getEmptyData = (): ActivityData => {
   };
 };
 
+// Tailwind safelist: bg-green-200 bg-green-400 bg-green-600 text-green-800
 export default function ActivityPage() {
   const searchParams = useSearchParams();
   const [activityData, setActivityData] = useState<ActivityData>(getEmptyData());
@@ -124,6 +125,7 @@ export default function ActivityPage() {
     const activity = viewingDataMonth ? activityData.activities[day] : null;
     const activityCount = activity?.count || 0;
     
+    
     // Check if this day is selected
     const isSelected = selectedDate.getDate() === day && 
                       selectedDate.getMonth() === currentViewDate.getMonth() &&
@@ -136,11 +138,11 @@ export default function ActivityPage() {
     } else if (activityCount > 0) {
       // Activity count based styling: 1=light, 2=medium, 3+=dark
       if (activityCount === 1) {
-        return baseStyle + "bg-green-200 text-green-800";
+        return baseStyle + "!bg-green-200 !text-green-800";
       } else if (activityCount === 2) {
-        return baseStyle + "bg-green-400 text-white";
+        return baseStyle + "!bg-green-400 !text-white";
       } else { // 3+
-        return baseStyle + "bg-green-600 text-white";
+        return baseStyle + "!bg-green-600 !text-white";
       }
     } else {
       return baseStyle + "text-gray-600 hover:bg-gray-100";
@@ -161,6 +163,9 @@ export default function ActivityPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
+      {/* Force Tailwind to include activity colors */}
+      <div className="hidden bg-green-200 bg-green-400 bg-green-600 text-green-800"></div>
+      
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Header */}
         <div className="bg-gray-800 text-white px-6 py-4">
