@@ -40,8 +40,15 @@ const encodeActivityData = (data: ActivityData): string => {
 
 const decodeActivityData = (encoded: string): ActivityData | null => {
   try {
-    return JSON.parse(atob(encoded));
-  } catch {
+    // React Native app does: btoa(unescape(encodeURIComponent(jsonString)))
+    // So we need to reverse: decodeURIComponent(escape(atob(encoded)))
+    const base64Decoded = atob(encoded);
+    const urlDecoded = decodeURIComponent(escape(base64Decoded));
+    const parsed = JSON.parse(urlDecoded);
+    
+    return parsed as ActivityData;
+  } catch (error) {
+    console.error('Failed to decode activity data:', error);
     return null;
   }
 };
@@ -52,7 +59,7 @@ const getEmptyData = (): ActivityData => {
   return {
     year: now.getFullYear(),
     month: now.getMonth(),
-    selectedDay: now.getDate(),
+    selectedDay: now.getDate(), // This will be today's date
     activities: {},
     logs: []
   };
@@ -64,50 +71,50 @@ const getLogTypeConfig = (type: LogType) => {
     case 'journal':
       return {
         icon: 'notebook',
-        color: 'bg-blue-500',
-        textColor: 'text-blue-600',
+        color: 'bg-[#3FB281]',
+        textColor: 'text-[#3FB281]',
         name: 'Journal'
       };
     case 'conversation':
       return {
-        icon: 'message',
-        color: 'bg-purple-500',
-        textColor: 'text-purple-600',
+        icon: 'message-text-outline',
+        color: 'bg-[#140F35]',
+        textColor: 'text-[#140F35]',
         name: 'Conversation'
       };
     case 'meditation':
       return {
         icon: 'meditation',
-        color: 'bg-green-500',
-        textColor: 'text-green-600',
+        color: 'bg-[#171047]',
+        textColor: 'text-[#171047]',
         name: 'Meditation'
       };
     case 'checkin-emotion':
       return {
-        icon: 'heart-pulse',
-        color: 'bg-pink-500',
-        textColor: 'text-pink-600',
+        icon: 'heart-outline',
+        color: 'bg-[#4CAF50]',
+        textColor: 'text-[#4CAF50]',
         name: 'Emotion Check-in'
       };
     case 'checkin-urge':
       return {
-        icon: 'heart-pulse',
-        color: 'bg-red-500',
-        textColor: 'text-red-600',
+        icon: 'alert-circle',
+        color: 'bg-[#E91E63]',
+        textColor: 'text-[#E91E63]',
         name: 'Urge Check-in'
       };
     case 'checkin-slip':
       return {
-        icon: 'heart-pulse',
-        color: 'bg-orange-500',
-        textColor: 'text-orange-600',
+        icon: 'repeat',
+        color: 'bg-[#FF5722]',
+        textColor: 'text-[#FF5722]',
         name: 'Slip Check-in'
       };
     case 'course':
       return {
-        icon: 'book',
-        color: 'bg-blue-600',
-        textColor: 'text-blue-700',
+        icon: 'book-outline',
+        color: 'bg-[#2196F3]',
+        textColor: 'text-[#2196F3]',
         name: 'Course'
       };
     default:
@@ -120,7 +127,7 @@ const getLogTypeConfig = (type: LogType) => {
   }
 };
 
-// Render icon based on type
+// Render icon based on type - matching mobile icons
 const renderLogIcon = (type: LogType) => {
   const config = getLogTypeConfig(type);
   
@@ -131,35 +138,46 @@ const renderLogIcon = (type: LogType) => {
           <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
         </svg>
       );
-    case 'message':
+    case 'message-text-outline':
       return (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
         </svg>
       );
     case 'meditation':
       return (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          <path d="M12 5.5C8 5.5 4.73 8.11 3.8 11.5c.93 3.39 4.2 6 8.2 6s7.27-2.61 8.2-6c-.93-3.39-4.2-6-8.2-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
         </svg>
       );
-    case 'heart-pulse':
+    case 'alert-circle':
       return (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          <path d="M16 8h-2v3h-4V8H8v8h2v-3h4v3h2V8z" fill="white" opacity="0.7"/>
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
         </svg>
       );
-    case 'book':
+    case 'heart-outline':
       return (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/>
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+        </svg>
+      );
+    case 'repeat':
+      return (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+        </svg>
+      );
+    case 'book-outline':
+      return (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
         </svg>
       );
     default:
       return (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
         </svg>
       );
   }
@@ -213,8 +231,8 @@ type FilterType = 'all' | 'journal' | 'conversation' | 'meditation' | 'checkin-a
 export default function ActivityPage() {
   const searchParams = useSearchParams();
   const [activityData, setActivityData] = useState<ActivityData>(getEmptyData());
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [currentViewDate, setCurrentViewDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date()); // This should be today
+  const [currentViewDate, setCurrentViewDate] = useState<Date>(new Date()); // This should be this month
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
@@ -233,16 +251,31 @@ export default function ActivityPage() {
   // Load data from URL on component mount
   useEffect(() => {
     const dataParam = searchParams.get('data');
+    
     if (dataParam) {
       const decodedData = decodeActivityData(dataParam);
+      
       if (decodedData) {
         setActivityData(decodedData);
         const viewDate = new Date(decodedData.year, decodedData.month, 1);
         setCurrentViewDate(viewDate);
-        setSelectedDate(new Date(decodedData.year, decodedData.month, decodedData.selectedDay || 1));
+        
+        // If viewing current month and no specific day selected, default to today
+        const now = new Date();
+        const isCurrentMonth = decodedData.year === now.getFullYear() && decodedData.month === now.getMonth();
+        const selectedDay = decodedData.selectedDay || (isCurrentMonth ? now.getDate() : 1);
+        
+        setSelectedDate(new Date(decodedData.year, decodedData.month, selectedDay));
+      } else {
+        // Failed to decode, use empty data
+        const emptyData = getEmptyData();
+        setActivityData(emptyData);
+        const viewDate = new Date(emptyData.year, emptyData.month, 1);
+        setCurrentViewDate(viewDate);
+        setSelectedDate(new Date(emptyData.year, emptyData.month, emptyData.selectedDay || 1));
       }
     } else {
-      // Use empty data when no URL parameter provided
+      // No URL parameter, use empty data
       const emptyData = getEmptyData();
       setActivityData(emptyData);
       const viewDate = new Date(emptyData.year, emptyData.month, 1);
@@ -313,15 +346,15 @@ export default function ActivityPage() {
     let baseStyle = "w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium cursor-pointer ";
     
     if (isSelected) {
-      return baseStyle + "border-2 border-gray-800 text-gray-800";
+      return baseStyle + "!border-2 !border-[#140F35] !text-[#140F35]";
     } else if (activityCount > 0) {
       // Activity count based styling: 1=light, 2=medium, 3+=dark
       if (activityCount === 1) {
-        return baseStyle + "!bg-green-200 !text-green-800";
+        return baseStyle + "!bg-[#3FB281]/30 !text-[#140F35]";
       } else if (activityCount === 2) {
-        return baseStyle + "!bg-green-400 !text-white";
+        return baseStyle + "!bg-[#3FB281]/70 !text-white";
       } else { // 3+
-        return baseStyle + "!bg-green-600 !text-white";
+        return baseStyle + "!bg-[#3FB281] !text-white";
       }
     } else {
       return baseStyle + "text-gray-600 hover:bg-gray-100";
@@ -418,12 +451,10 @@ export default function ActivityPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
-      {/* Force Tailwind to include activity colors */}
-      <div className="hidden bg-green-200 bg-green-400 bg-green-600 text-green-800"></div>
       
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Header */}
-        <div className="bg-gray-800 text-white px-6 py-4">
+        <div className="bg-[#140F35] text-white px-6 py-4">
           <h1 className="text-xl font-semibold text-center">Analyze</h1>
         </div>
 
@@ -434,7 +465,7 @@ export default function ActivityPage() {
             <div className="flex items-center justify-between mb-4">
               <button 
                 onClick={goToPreviousMonth}
-                className="text-green-600 text-lg hover:text-green-700 cursor-pointer"
+                className="text-[#3FB281] text-lg hover:text-[#43C78F] cursor-pointer"
               >
                 ‹
               </button>
@@ -442,7 +473,7 @@ export default function ActivityPage() {
               {!isCurrentMonth() && (
                 <button 
                   onClick={goToNextMonth}
-                  className="text-green-600 text-lg hover:text-green-700 cursor-pointer"
+                  className="text-[#3FB281] text-lg hover:text-[#43C78F] cursor-pointer"
                 >
                   ›
                 </button>
@@ -474,6 +505,63 @@ export default function ActivityPage() {
             </div>
           </div>
 
+          {/* CTA Section */}
+          {hasUrlData && (
+            <div className="bg-gradient-to-br from-[#140F35] to-[#30377F] text-white p-6 rounded-2xl mb-6 relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-20 h-20 border border-white/20 rounded-full"></div>
+              </div>
+              
+              <div className="relative z-10 text-center">
+                <div className="mb-4">
+                  <div className="w-12 h-12 mx-auto mb-3 bg-[#3FB281] rounded-xl flex items-center justify-center">
+                    <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Ready to Take Control?</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-6">
+                    You've seen what progress tracking looks like. Now start building the habits that matter most to you.
+                  </p>
+                </div>
+
+                <div className="space-y-3 max-w-xs mx-auto">
+                  <a
+                    href="https://apps.apple.com/app/id6467687675"
+                    className="inline-flex items-center justify-center px-4 py-3 bg-white text-[#140F35] rounded-xl font-semibold text-sm w-full hover:bg-gray-100 transition-colors"
+                    aria-label="Download Neurture on the App Store"
+                  >
+                    <svg className="w-5 h-5 mr-2" viewBox="0 0 384 512">
+                      <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                    </svg>
+                    Download for iPhone
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame"
+                    className="inline-flex items-center justify-center px-4 py-3 bg-white text-[#140F35] rounded-xl font-semibold text-sm w-full hover:bg-gray-100 transition-colors"
+                    aria-label="Get Neurture on Google Play"
+                  >
+                    <svg className="w-5 h-5 mr-2" viewBox="30 336.7 120.9 129.2">
+                      <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"/>
+                      <path fill="#FF3333" d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"/>
+                      <path fill="#48FF48" d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"/>
+                      <path fill="#3BCCFF" d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"/>
+                    </svg>
+                    Download for Android
+                  </a>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <p className="text-xs text-white/70">
+                    Join thousands building healthier habits • Free to start
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Activity Log Section */}
           <div className="mb-6 relative">
             <div className="flex items-center justify-between mb-4">
@@ -488,7 +576,7 @@ export default function ActivityPage() {
                   <span className="flex items-center">
                     {filterInfo.name}
                     {activeFilter !== 'all' && (
-                      <div className="w-2 h-2 bg-blue-500 rounded-full ml-2"></div>
+                      <div className="w-2 h-2 bg-[#3FB281] rounded-full ml-2"></div>
                     )}
                   </span>
                   <svg 
@@ -504,7 +592,7 @@ export default function ActivityPage() {
               </div>
               {activeFilter !== 'all' && (
                 <button 
-                  className="text-xs text-blue-600 font-medium hover:text-blue-700"
+                  className="text-xs text-[#3FB281] font-medium hover:text-[#43C78F]"
                   onClick={() => {
                     setActiveFilter('all');
                     setShowFilterDropdown(false);
@@ -522,7 +610,7 @@ export default function ActivityPage() {
                   <button
                     key={option.filter}
                     className={`w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center justify-between border-b border-gray-100 last:border-b-0 ${
-                      activeFilter === option.filter ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
+                      activeFilter === option.filter ? 'bg-[#3FB281]/10 text-[#140F35]' : 'text-gray-700'
                     }`}
                     onClick={() => {
                       setActiveFilter(option.filter);
@@ -592,15 +680,15 @@ export default function ActivityPage() {
                   {/* Features Preview */}
                   <div className="mb-8 space-y-3 text-left max-w-xs mx-auto">
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-green-200 rounded-full"></div>
+                      <div className="w-2 h-2 bg-[#3FB281]/30 rounded-full"></div>
                       <span className="text-xs text-gray-600">Light activity days</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-xs text-gray-600">Busy activity days</span>
+                      <div className="w-2 h-2 bg-[#3FB281]/70 rounded-full"></div>
+                      <span className="text-xs text-gray-600">Medium activity days</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-[#3FB281] rounded-full"></div>
                       <span className="text-xs text-gray-600">High activity days</span>
                     </div>
                   </div>
@@ -649,15 +737,8 @@ export default function ActivityPage() {
             </div>
           </div>
 
-          {/* Floating Action Button */}
-          <div className="fixed bottom-6 right-6">
-            <button className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-            </button>
-          </div>
         </div>
+
       </div>
     </div>
   );
