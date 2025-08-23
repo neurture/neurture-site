@@ -40,11 +40,11 @@ const encodeActivityData = (data: ActivityData): string => {
 
 const decodeActivityData = (encoded: string): ActivityData | null => {
   try {
-    // React Native app does: btoa(unescape(encodeURIComponent(jsonString)))
-    // So we need to reverse: decodeURIComponent(escape(atob(encoded)))
+    // Decode from base64 then UTF-8 (matches mobile app encoding)
     const base64Decoded = atob(encoded);
-    const urlDecoded = decodeURIComponent(escape(base64Decoded));
-    const parsed = JSON.parse(urlDecoded);
+    const bytes = Uint8Array.from(base64Decoded, c => c.charCodeAt(0));
+    const jsonString = new TextDecoder().decode(bytes);
+    const parsed = JSON.parse(jsonString);
     
     return parsed as ActivityData;
   } catch (error) {
@@ -509,7 +509,7 @@ export default function ActivityPage() {
           {hasUrlData && (
             <div className="bg-gradient-to-br from-[#140F35] to-[#30377F] text-white p-4 rounded-xl mb-4 relative overflow-hidden">
               <div className="relative z-10 text-center">
-                <h3 className="text-lg font-bold mb-2">Ready to Take Control?</h3>
+                <h3 className="text-lg font-bold mb-2">Ready to Build Understanding?</h3>
                 <p className="text-white/90 text-xs leading-relaxed mb-4">
                   Start building the habits that matter most to you.
                 </p>
