@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.23.12",
+    "lz-string": "^1.5.0",
     "next": "15.4.1",
     "posthog-js": "^1.260.1",
     "react": "19.1.0",

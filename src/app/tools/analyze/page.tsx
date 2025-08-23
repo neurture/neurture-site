@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import LZString from "lz-string";
 import PlatformCTA from "@/components/PlatformCTA";
 
 type LogType = 'journal' | 'conversation' | 'meditation' | 'checkin-emotion' | 'checkin-urge' | 'checkin-slip' | 'course';
@@ -40,15 +41,53 @@ const encodeActivityData = (data: ActivityData): string => {
 
 const decodeActivityData = (encoded: string): ActivityData | null => {
   try {
-    // Decode from base64 then UTF-8 (matches mobile app encoding)
-    const base64Decoded = atob(encoded);
-    const bytes = Uint8Array.from(base64Decoded, c => c.charCodeAt(0));
-    const jsonString = new TextDecoder().decode(bytes);
-    const parsed = JSON.parse(jsonString);
+    // Validate data integrity first
+    if (!encoded || encoded.length === 0) {
+      console.error('❌ Empty or missing data parameter');
+      return null;
+    }
     
+    // Try LZ-String decompression first (new format)
+    let jsonString: string;
+    try {
+      jsonString = LZString.decompressFromEncodedURIComponent(encoded);
+      if (!jsonString) {
+        throw new Error('LZ-String decompression failed');
+      }
+      console.log('✅ Successfully decompressed LZ-String data');
+    } catch (lzError) {
+      console.log('⚠️ LZ-String failed, trying base64 fallback');
+      
+      // Fallback to base64 decoding (legacy format)
+      if (encoded.length % 4 !== 0) {
+        console.error('❌ Base64 data appears truncated - invalid length:', encoded.length);
+        console.error('📝 Data preview:', encoded.substring(0, 50) + '...' + encoded.substring(encoded.length - 10));
+        return null;
+      }
+      
+      // Check for suspicious truncation patterns
+      if (encoded.endsWith('...') || encoded.includes('…')) {
+        console.error('❌ Data appears visually truncated (contains ellipsis)');
+        return null;
+      }
+      
+      console.log('✅ Base64 validation passed - length:', encoded.length);
+      
+      // Decode from base64 then UTF-8 (matches mobile app encoding)
+      const base64Decoded = atob(encoded);
+      const bytes = Uint8Array.from(base64Decoded, c => c.charCodeAt(0));
+      jsonString = new TextDecoder().decode(bytes);
+      console.log('✅ Successfully decoded base64 data (legacy format)');
+    }
+    
+    // Parse the JSON
+    const parsed = JSON.parse(jsonString);
+    console.log('✅ Successfully parsed activity data');
     return parsed as ActivityData;
   } catch (error) {
-    console.error('Failed to decode activity data:', error);
+    console.error('❌ Failed to decode activity data:', error);
+    console.error('📝 Encoded data length:', encoded?.length || 0);
+    console.error('📝 Data sample:', encoded?.substring(0, 100) + '...');
     return null;
   }
 };
