@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import LZString from "lz-string";
 import PlatformCTA from "@/components/PlatformCTA";
 
@@ -267,8 +266,7 @@ const formatSmartDate = (dateString: string): string => {
 // Tailwind safelist: bg-green-200 bg-green-400 bg-green-600 text-green-800 bg-blue-500 bg-purple-500 bg-pink-500 bg-red-500 bg-orange-500 bg-blue-600
 type FilterType = 'all' | 'journal' | 'conversation' | 'meditation' | 'checkin-all' | 'checkin-emotion' | 'checkin-urge' | 'checkin-slip' | 'course';
 
-function ActivityContent() {
-  const searchParams = useSearchParams();
+export default function ActivityPage() {
   const [activityData, setActivityData] = useState<ActivityData>(getEmptyData());
   const [selectedDate, setSelectedDate] = useState<Date>(new Date()); // This should be today
   const [currentViewDate, setCurrentViewDate] = useState<Date>(new Date()); // This should be this month
@@ -287,9 +285,18 @@ function ActivityContent() {
     }
   }, [showFilterDropdown]);
 
-  // Load data from URL on component mount
+  // Load data from URL hash on component mount and hash changes
   useEffect(() => {
-    const dataParam = searchParams.get('data');
+    const getHashData = () => {
+      if (typeof window !== 'undefined') {
+        const hash = window.location.hash;
+        const match = hash.match(/[#&]data=([^&]*)/);
+        return match ? decodeURIComponent(match[1]) : null;
+      }
+      return null;
+    };
+
+    const dataParam = getHashData();
     
     if (dataParam) {
       const decodedData = decodeActivityData(dataParam);
@@ -314,14 +321,38 @@ function ActivityContent() {
         setSelectedDate(new Date(emptyData.year, emptyData.month, emptyData.selectedDay || 1));
       }
     } else {
-      // No URL parameter, use empty data
+      // No hash parameter, use empty data
       const emptyData = getEmptyData();
       setActivityData(emptyData);
       const viewDate = new Date(emptyData.year, emptyData.month, 1);
       setCurrentViewDate(viewDate);
       setSelectedDate(new Date(emptyData.year, emptyData.month, emptyData.selectedDay || 1));
     }
-  }, [searchParams]);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      const newDataParam = getHashData();
+      if (newDataParam) {
+        const decodedData = decodeActivityData(newDataParam);
+        if (decodedData) {
+          setActivityData(decodedData);
+          const viewDate = new Date(decodedData.year, decodedData.month, 1);
+          setCurrentViewDate(viewDate);
+          
+          const now = new Date();
+          const isCurrentMonth = decodedData.year === now.getFullYear() && decodedData.month === now.getMonth();
+          const selectedDay = decodedData.selectedDay || (isCurrentMonth ? now.getDate() : 1);
+          
+          setSelectedDate(new Date(decodedData.year, decodedData.month, selectedDay));
+        }
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('hashchange', handleHashChange);
+      return () => window.removeEventListener('hashchange', handleHashChange);
+    }
+  }, []);
 
   // Navigation functions
   const goToPreviousMonth = () => {
@@ -485,8 +516,8 @@ function ActivityContent() {
   const filteredLogs = getFilteredLogs();
   const filterInfo = getFilterInfo();
   
-  // Check if we have URL data
-  const hasUrlData = searchParams.get('data') !== null;
+  // Check if we have hash data
+  const hasUrlData = typeof window !== 'undefined' && window.location.hash.includes('data=');
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
@@ -761,18 +792,5 @@ function ActivityContent() {
 
       </div>
     </div>
-  );
-}
-
-export default function ActivityPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3FB281] mx-auto mb-4"></div>
-        <p className="text-gray-600">Loading your data...</p>
-      </div>
-    </div>}>
-      <ActivityContent />
-    </Suspense>
   );
 }
