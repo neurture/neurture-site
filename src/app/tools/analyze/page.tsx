@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import LZString from "lz-string";
 import PlatformCTA from "@/components/PlatformCTA";
@@ -267,7 +267,7 @@ const formatSmartDate = (dateString: string): string => {
 // Tailwind safelist: bg-green-200 bg-green-400 bg-green-600 text-green-800 bg-blue-500 bg-purple-500 bg-pink-500 bg-red-500 bg-orange-500 bg-blue-600
 type FilterType = 'all' | 'journal' | 'conversation' | 'meditation' | 'checkin-all' | 'checkin-emotion' | 'checkin-urge' | 'checkin-slip' | 'course';
 
-export default function ActivityPage() {
+function ActivityContent() {
   const searchParams = useSearchParams();
   const [activityData, setActivityData] = useState<ActivityData>(getEmptyData());
   const [selectedDate, setSelectedDate] = useState<Date>(new Date()); // This should be today
@@ -761,5 +761,18 @@ export default function ActivityPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function ActivityPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3FB281] mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading your data...</p>
+      </div>
+    </div>}>
+      <ActivityContent />
+    </Suspense>
   );
 }
