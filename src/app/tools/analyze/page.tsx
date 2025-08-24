@@ -502,12 +502,22 @@ export default function ActivityPage() {
   const getDayStyle = (day: number | null) => {
     if (!day) return "invisible";
 
-    // Check if this day has activity (only if viewing the same month as the data)
-    const viewingDataMonth =
-      currentViewDate.getFullYear() === activityData.year &&
-      currentViewDate.getMonth() === activityData.month;
-    const activity = viewingDataMonth ? activityData.activities[day] : null;
-    const activityCount = activity?.count || 0;
+    // Generate activity count for this specific day based on logs
+    const currentDate = new Date(
+      currentViewDate.getFullYear(),
+      currentViewDate.getMonth(),
+      day
+    );
+    const dayStart = new Date(currentDate);
+    dayStart.setHours(0, 0, 0, 0);
+    const dayEnd = new Date(currentDate);
+    dayEnd.setHours(23, 59, 59, 999);
+    
+    // Count logs for this specific day
+    const activityCount = activityData.logs.filter(log => {
+      const logDate = new Date(log.date);
+      return logDate >= dayStart && logDate <= dayEnd;
+    }).length;
 
     // Check if this day is selected
     const isSelected =
