@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import LZString from "lz-string";
 import PlatformCTA from "@/components/PlatformCTA";
 
+
 type LogType =
   | "journal"
   | "conversation"
@@ -689,7 +690,37 @@ export default function ActivityPage() {
   const [hasUrlData, setHasUrlData] = useState(false);
   
   useEffect(() => {
-    setHasUrlData(window.location.hash.includes("data="));
+    const hasData = window.location.hash.includes("data=");
+    setHasUrlData(hasData);
+    
+    // Update page title for better social sharing
+    if (hasData) {
+      document.title = "Someone shared their wellness journey with you | Neurture";
+      
+      // Add meta description for social sharing
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', 'A friend is sharing their progress building healthier habits. See their journey and offer support on their path to wellness.');
+      
+      // Add Open Graph tags
+      const addOGTag = (property: string, content: string) => {
+        let tag = document.querySelector(`meta[property="${property}"]`);
+        if (!tag) {
+          tag = document.createElement('meta');
+          tag.setAttribute('property', property);
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', content);
+      };
+      
+      addOGTag('og:title', 'Someone shared their wellness journey with you');
+      addOGTag('og:description', 'A friend is building healthier habits and wants your support. See their progress and cheer them on.');
+      addOGTag('og:type', 'website');
+    }
   }, []);
 
   return (
@@ -731,6 +762,20 @@ export default function ActivityPage() {
 
           {/* Calendar */}
           <div className="p-6">
+            {/* Supportive message when viewing shared data */}
+            {hasUrlData && (
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4 mb-6">
+                <div className="text-center">
+                  <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                    Supporting a Friend's Journey
+                  </h2>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Someone has shared their habit-building progress with you for support and accountability.
+                  </p>
+                </div>
+              </div>
+            )}
+            
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               {/* Month Header */}
               <div className="flex items-center justify-between mb-4">
