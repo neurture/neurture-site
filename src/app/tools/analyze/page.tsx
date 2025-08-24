@@ -222,7 +222,7 @@ const renderLogIcon = (type: LogType) => {
           fill="currentColor"
           viewBox="0 0 24 24"
         >
-          <path d="M12 5.5C8 5.5 4.73 8.11 3.8 11.5c.93 3.39 4.2 6 8.2 6s7.27-2.61 8.2-6c-.93-3.39-4.2-6-8.2-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+          <path d="M12 4C13.11 4 14 4.89 14 6S13.11 8 12 8 10 7.11 10 6 10.9 4 12 4M21 16V14C18.76 14 16.84 13.04 15.4 11.32L14.06 9.72C13.68 9.26 13.12 9 12.53 9H11.5C10.89 9 10.33 9.26 9.95 9.72L8.61 11.32C7.16 13.04 5.24 14 3 14V16C5.77 16 8.19 14.83 10 12.75V15L6.12 16.55C5.45 16.82 5 17.5 5 18.21C5 19.2 5.8 20 6.79 20H9V19.5C9 18.12 10.12 17 11.5 17H14.5C14.78 17 15 17.22 15 17.5S14.78 18 14.5 18H11.5C10.67 18 10 18.67 10 19.5V20H17.21C18.2 20 19 19.2 19 18.21C19 17.5 18.55 16.82 17.88 16.55L14 15V12.75C15.81 14.83 18.23 16 21 16Z" />
         </svg>
       );
     case "alert-circle":
@@ -776,9 +776,9 @@ export default function ActivityPage() {
               </div>
             )}
             
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="bg-white border border-gray-300 rounded-lg overflow-hidden mb-6">
               {/* Month Header */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-300">
                 <button
                   onClick={goToPreviousMonth}
                   className="text-[#3FB281] text-lg hover:text-[#43C78F] cursor-pointer"
@@ -800,7 +800,7 @@ export default function ActivityPage() {
               </div>
 
               {/* Day Labels */}
-              <div className="grid grid-cols-7 gap-1 mb-2">
+              <div className="grid grid-cols-7 border-b border-gray-300">
                 {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
                   <div
                     key={`day-label-${index}`}
@@ -812,11 +812,11 @@ export default function ActivityPage() {
               </div>
 
               {/* Calendar Grid */}
-              <div className="grid grid-cols-7 gap-1">
+              <div className="grid grid-cols-7">
                 {calendarDays.map((day, index) => (
                   <div
                     key={`calendar-${index}`}
-                    className="flex justify-center"
+                    className="flex justify-center h-12 items-center"
                   >
                     <button
                       className={getDayStyle(day)}
@@ -981,35 +981,40 @@ export default function ActivityPage() {
                         key={`${log.id}-${index}-${log.date}`}
                         className="flex items-center justify-between bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50 cursor-pointer"
                       >
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 flex-1 min-w-0">
                           <div
-                            className={`w-10 h-10 ${config.color} rounded-lg flex items-center justify-center`}
+                            className={`w-10 h-10 ${config.color} rounded-lg flex items-center justify-center flex-shrink-0`}
                           >
                             {renderLogIcon(log.type)}
                           </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-900">
-                              {log.title}
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm text-gray-600 truncate">
+                              {/* Format check-ins with specific prefixes */}
+                              {log.type === "checkin-slip" ? (
+                                <>
+                                  Slip • {log.metadata?.intensity || 0}/10 urge intensity
+                                </>
+                              ) : log.type === "checkin-urge" ? (
+                                <>
+                                  Urge • {log.metadata?.intensity || 0}/10 intensity
+                                </>
+                              ) : log.type === "checkin-emotion" ? (
+                                <>
+                                  Emotion check-in{log.metadata?.emotion && ` • ${log.metadata.emotion}`}
+                                </>
+                              ) : (
+                                <>
+                                  {log.title}
+                                  {log.metadata && (
+                                    <>
+                                      {log.metadata.intensity && ` • Intensity ${log.metadata.intensity}/10`}
+                                      {log.metadata.emotion && ` • ${log.metadata.emotion}`}
+                                      {log.metadata.duration && ` • ${log.metadata.duration}min`}
+                                    </>
+                                  )}
+                                </>
+                              )}
                             </p>
-                            {log.subtitle && (
-                              <p className="text-xs text-gray-500">
-                                {log.subtitle}
-                              </p>
-                            )}
-                            {log.metadata && (
-                              <div className="text-xs text-gray-400 mt-1">
-                                {log.metadata.intensity &&
-                                  `Intensity ${log.metadata.intensity}/10`}
-                                {log.metadata.emotion &&
-                                  ` • ${log.metadata.emotion}`}
-                                {log.metadata.resisted !== undefined &&
-                                  (log.metadata.resisted
-                                    ? " • resisted urge"
-                                    : " • acted on urge")}
-                                {log.metadata.duration &&
-                                  ` • ${log.metadata.duration}min`}
-                              </div>
-                            )}
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
