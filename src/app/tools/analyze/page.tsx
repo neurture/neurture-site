@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import LZString from "lz-string";
-import PlatformCTA from "@/components/PlatformCTA";
-
+import Link from "next/link";
+import Image from "next/image";
 
 type LogType =
   | "journal"
@@ -44,11 +44,6 @@ interface ActivityData {
   logs: LogEntry[];
 }
 
-// Utility functions for encoding/decoding URL data
-const encodeActivityData = (data: ActivityData): string => {
-  return btoa(JSON.stringify(data));
-};
-
 const decodeActivityData = (encoded: string): ActivityData | null => {
   try {
     // Validate data integrity first
@@ -65,7 +60,7 @@ const decodeActivityData = (encoded: string): ActivityData | null => {
         throw new Error("LZ-String decompression failed");
       }
       console.log("✅ Successfully decompressed LZ-String data");
-    } catch (lzError) {
+    } catch {
       console.log("⚠️ LZ-String failed, trying base64 fallback");
 
       // Fallback to base64 decoding (legacy format)
@@ -459,7 +454,7 @@ export default function ActivityPage() {
     const prevMonth = new Date(currentViewDate);
     prevMonth.setMonth(prevMonth.getMonth() - 1);
     setCurrentViewDate(prevMonth);
-    
+
     // Clear selected date when navigating to previous months
     // No day should be selected/circled in previous months
     setSelectedDate(new Date(0)); // Set to epoch time so no day matches
@@ -469,11 +464,12 @@ export default function ActivityPage() {
     const nextMonth = new Date(currentViewDate);
     nextMonth.setMonth(nextMonth.getMonth() + 1);
     setCurrentViewDate(nextMonth);
-    
+
     // When returning to current month, select today
     const now = new Date();
-    const isCurrentMonth = nextMonth.getFullYear() === now.getFullYear() && 
-                          nextMonth.getMonth() === now.getMonth();
+    const isCurrentMonth =
+      nextMonth.getFullYear() === now.getFullYear() &&
+      nextMonth.getMonth() === now.getMonth();
     if (isCurrentMonth) {
       setSelectedDate(new Date()); // Select today
     } else {
@@ -527,9 +523,9 @@ export default function ActivityPage() {
     dayStart.setHours(0, 0, 0, 0);
     const dayEnd = new Date(currentDate);
     dayEnd.setHours(23, 59, 59, 999);
-    
+
     // Count logs for this specific day (filtered by current filter)
-    const activityCount = getFilteredLogs().filter(log => {
+    const activityCount = getFilteredLogs().filter((log) => {
       const logDate = new Date(log.date);
       return logDate >= dayStart && logDate <= dayEnd;
     }).length;
@@ -540,7 +536,7 @@ export default function ActivityPage() {
       selectedDate.getMonth() === currentViewDate.getMonth() &&
       selectedDate.getFullYear() === currentViewDate.getFullYear();
 
-    let baseStyle =
+    const baseStyle =
       "w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium cursor-pointer ";
 
     if (isSelected) {
@@ -582,7 +578,7 @@ export default function ActivityPage() {
   // Filter logs based on active filter and sort by date (most recent first)
   const getFilteredLogs = (): LogEntry[] => {
     let filtered: LogEntry[];
-    
+
     if (activeFilter === "all") {
       filtered = activityData.logs;
     } else {
@@ -609,9 +605,11 @@ export default function ActivityPage() {
         }
       });
     }
-    
+
     // Sort by date, most recent first
-    return filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return filtered.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
   };
 
   // Get all available filter options
@@ -702,38 +700,45 @@ export default function ActivityPage() {
 
   // Check if we have hash data (client-side only to avoid hydration mismatch)
   const [hasUrlData, setHasUrlData] = useState(false);
-  
+
   useEffect(() => {
     const hasData = window.location.hash.includes("data=");
     setHasUrlData(hasData);
-    
+
     // Update page title for better social sharing
     if (hasData) {
-      document.title = "Someone shared their wellness journey with you | Neurture";
-      
+      document.title =
+        "Someone shared their wellness journey with you | Neurture";
+
       // Add meta description for social sharing
       let metaDescription = document.querySelector('meta[name="description"]');
       if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
+        metaDescription = document.createElement("meta");
+        metaDescription.setAttribute("name", "description");
         document.head.appendChild(metaDescription);
       }
-      metaDescription.setAttribute('content', 'A friend is sharing their progress building healthier habits. See their journey and offer support on their path to wellness.');
-      
+      metaDescription.setAttribute(
+        "content",
+        "A friend is sharing their progress building healthier habits. See their journey and offer support on their path to wellness."
+      );
+
       // Add Open Graph tags
       const addOGTag = (property: string, content: string) => {
         let tag = document.querySelector(`meta[property="${property}"]`);
         if (!tag) {
-          tag = document.createElement('meta');
-          tag.setAttribute('property', property);
+          tag = document.createElement("meta");
+          tag.setAttribute("property", property);
           document.head.appendChild(tag);
         }
-        tag.setAttribute('content', content);
+        tag.setAttribute("content", content);
       };
-      
-      addOGTag('og:title', 'Someone shared their wellness journey with you');
-      addOGTag('og:description', 'A friend is building healthier habits and wants your support. See their progress and cheer them on.');
-      addOGTag('og:type', 'website');
+
+      addOGTag("og:title", "Someone shared their wellness journey with you");
+      addOGTag(
+        "og:description",
+        "A friend is building healthier habits and wants your support. See their progress and cheer them on."
+      );
+      addOGTag("og:type", "website");
     }
   }, []);
 
@@ -756,13 +761,13 @@ export default function ActivityPage() {
         {/* Mobile-only custom header */}
         <div className="md:hidden bg-[#140F35] text-white px-6 py-4 sticky top-0 z-50">
           <div className="flex items-center justify-between">
-            <a href="/" className="hover:opacity-80">
-              <img
+            <Link href="/" className="hover:opacity-80">
+              <Image
                 src="/images/neurture-logo-transparent.png"
                 alt="Neurture"
                 className="w-6 h-6 object-contain rounded-[22%]"
               />
-            </a>
+            </Link>
             <h1 className="text-xl font-semibold">Analyze</h1>
             <div className="w-6"></div> {/* Spacer */}
           </div>
@@ -779,17 +784,18 @@ export default function ActivityPage() {
             {/* Supportive message when viewing shared data */}
             {hasUrlData && (
               <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4 mb-6">
-                <div className="text-center">
+                <div>
                   <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                    Supporting a Friend's Journey
+                    Supporting a Friend
                   </h2>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Someone has shared their habit-building progress with you for support and accountability.
+                    Someone has shared their habit-building progress with you
+                    for support and accountability.
                   </p>
                 </div>
               </div>
             )}
-            
+
             <div className="bg-white border border-gray-300 rounded-lg overflow-hidden mb-6">
               {/* Month Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-300">
@@ -1006,24 +1012,31 @@ export default function ActivityPage() {
                               {/* Format check-ins with specific prefixes */}
                               {log.type === "checkin-slip" ? (
                                 <>
-                                  Slip • {log.metadata?.intensity || 0}/10 urge intensity
+                                  Slip • {log.metadata?.intensity || 0}/10 urge
+                                  intensity
                                 </>
                               ) : log.type === "checkin-urge" ? (
                                 <>
-                                  Urge • {log.metadata?.intensity || 0}/10 intensity
+                                  Urge • {log.metadata?.intensity || 0}/10
+                                  intensity
                                 </>
                               ) : log.type === "checkin-emotion" ? (
                                 <>
-                                  Emotion check-in{log.metadata?.emotion && ` • ${log.metadata.emotion}`}
+                                  Emotion check-in
+                                  {log.metadata?.emotion &&
+                                    ` • ${log.metadata.emotion}`}
                                 </>
                               ) : (
                                 <>
                                   {log.title}
                                   {log.metadata && (
                                     <>
-                                      {log.metadata.intensity && ` • Intensity ${log.metadata.intensity}/10`}
-                                      {log.metadata.emotion && ` • ${log.metadata.emotion}`}
-                                      {log.metadata.duration && ` • ${log.metadata.duration}min`}
+                                      {log.metadata.intensity &&
+                                        ` • Intensity ${log.metadata.intensity}/10`}
+                                      {log.metadata.emotion &&
+                                        ` • ${log.metadata.emotion}`}
+                                      {log.metadata.duration &&
+                                        ` • ${log.metadata.duration}min`}
                                     </>
                                   )}
                                 </>
@@ -1059,7 +1072,7 @@ export default function ActivityPage() {
                     {/* App Icon/Visual */}
                     <div className="mb-6">
                       <div className="w-16 h-16 mx-auto mb-4">
-                        <img
+                        <Image
                           src="/images/neurture-icon.png"
                           alt="Neurture App Icon"
                           className="w-full h-full object-contain rounded-2xl"
@@ -1192,28 +1205,28 @@ export default function ActivityPage() {
                 <h4 className="font-medium text-gray-900 mb-3">Learn</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
+                    <Link
                       href="/"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/team"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Team
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/podcast"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Podcast
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -1221,28 +1234,28 @@ export default function ActivityPage() {
                 <h4 className="font-medium text-gray-900 mb-3">Resources</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
+                    <Link
                       href="/partners"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Partners
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/press-kit"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Press Kit
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/privacy-policy"
                       className="text-sm text-gray-600 hover:text-gray-900"
                     >
                       Privacy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -1254,7 +1267,7 @@ export default function ActivityPage() {
                 Get the App
               </p>
               <div className="flex flex-col gap-3">
-                <a
+                <Link
                   href="https://apps.apple.com/app/id6467687675"
                   className="flex items-center justify-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                 >
@@ -1265,8 +1278,8 @@ export default function ActivityPage() {
                     ></path>
                   </svg>
                   <span className="text-sm">Download for iOS</span>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame"
                   className="flex items-center justify-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                 >
@@ -1293,7 +1306,7 @@ export default function ActivityPage() {
                     ></path>
                   </svg>
                   <span className="text-sm">Download for Android</span>
-                </a>
+                </Link>
               </div>
             </div>
 
