@@ -459,12 +459,26 @@ export default function ActivityPage() {
     const prevMonth = new Date(currentViewDate);
     prevMonth.setMonth(prevMonth.getMonth() - 1);
     setCurrentViewDate(prevMonth);
+    
+    // Clear selected date when navigating to previous months
+    // No day should be selected/circled in previous months
+    setSelectedDate(new Date(0)); // Set to epoch time so no day matches
   };
 
   const goToNextMonth = () => {
     const nextMonth = new Date(currentViewDate);
     nextMonth.setMonth(nextMonth.getMonth() + 1);
     setCurrentViewDate(nextMonth);
+    
+    // When returning to current month, select today
+    const now = new Date();
+    const isCurrentMonth = nextMonth.getFullYear() === now.getFullYear() && 
+                          nextMonth.getMonth() === now.getMonth();
+    if (isCurrentMonth) {
+      setSelectedDate(new Date()); // Select today
+    } else {
+      setSelectedDate(new Date(0)); // Clear selection for other months
+    }
   };
 
   // Check if we're at current month
@@ -514,8 +528,8 @@ export default function ActivityPage() {
     const dayEnd = new Date(currentDate);
     dayEnd.setHours(23, 59, 59, 999);
     
-    // Count logs for this specific day
-    const activityCount = activityData.logs.filter(log => {
+    // Count logs for this specific day (filtered by current filter)
+    const activityCount = getFilteredLogs().filter(log => {
       const logDate = new Date(log.date);
       return logDate >= dayStart && logDate <= dayEnd;
     }).length;
