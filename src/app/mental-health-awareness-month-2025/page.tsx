@@ -31,7 +31,7 @@ function MentalHealthAwarenessContent() {
       await navigator.clipboard.writeText(text);
       setCopiedId(elementId);
       setTimeout(() => setCopiedId(null), 1500);
-    } catch (err) {
+    } catch {
       // Fallback for older browsers
       const textarea = document.createElement('textarea');
       textarea.value = text;
@@ -45,9 +45,6 @@ function MentalHealthAwarenessContent() {
   };
 
   const formattedPartnerName = partnerName ? `${partnerName} + ` : '';
-  const title = partnerName 
-    ? `Neurture + ${partnerName} - Mental Health Awareness Month 2025`
-    : 'Neurture - Mental Health Awareness Month 2025';
 
   if (deviceType === 'loading') {
     return (
@@ -107,9 +104,11 @@ function MentalHealthAwarenessContent() {
             href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame"
             className="inline-block"
           >
-            <img
+            <Image
               src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
               alt="Get it on Google Play"
+              width={200}
+              height={60}
               className="h-[60px]"
             />
           </a>
@@ -194,18 +193,22 @@ function MentalHealthAwarenessContent() {
         <div className="flex justify-between mt-4">
           <div className="w-[45%] flex justify-center">
             <a href={`https://apps.apple.com/redeem?ctx=offercodes&id=6467687675&code=${promoCode}`}>
-              <img
+              <Image
                 src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
                 alt="Download on the App Store"
+                width={120}
+                height={40}
                 className="h-12"
               />
             </a>
           </div>
           <div className="w-[45%] flex justify-center">
             <a href="https://play.google.com/store/apps/details?id=com.bradydowling.unshame">
-              <img
+              <Image
                 src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                 alt="Get it on Google Play"
+                width={135}
+                height={40}
                 className="h-12"
               />
             </a>

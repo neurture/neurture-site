@@ -1,9 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { usePostHog } from 'posthog-js/react';
 
 const APPLE_APP_STORE_URL = 'https://apps.apple.com/app/id6467687675';
 const GOOGLE_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.bradydowling.unshame';
+
+interface AttributionParams {
+  ref?: string;
+  campaign?: string;
+  partner?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+}
 
 function detectDevice() {
   const userAgent = navigator.userAgent;
@@ -22,17 +34,108 @@ function detectDevice() {
   return 'web';
 }
 
+function parseAttributionParams(): AttributionParams {
+  if (typeof window === 'undefined') return {};
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    ref: urlParams.get('ref') || undefined,
+    campaign: urlParams.get('campaign') || undefined,
+    partner: urlParams.get('partner') || undefined,
+    utm_source: urlParams.get('utm_source') || undefined,
+    utm_medium: urlParams.get('utm_medium') || undefined,
+    utm_campaign: urlParams.get('utm_campaign') || undefined,
+    utm_term: urlParams.get('utm_term') || undefined,
+    utm_content: urlParams.get('utm_content') || undefined,
+  };
+}
+
 export default function InstallPage() {
+  const posthog = usePostHog();
+  const [attribution, setAttribution] = useState<AttributionParams>({});
+  const [hasTrackedView, setHasTrackedView] = useState(false);
+
+  // Parse URL parameters and track page view
+  useEffect(() => {
+    const attributionParams = parseAttributionParams();
+    setAttribution(attributionParams);
+
+    // Track install page view with attribution
+    if (posthog && !hasTrackedView) {
+      const device = detectDevice();
+      
+      posthog.capture('install_page_viewed', {
+        referral_source: attributionParams.ref,
+        campaign: attributionParams.campaign,
+        partner: attributionParams.partner,
+        device_type: device,
+        user_agent: navigator.userAgent,
+        url: window.location.href,
+        // UTM parameters
+        utm_source: attributionParams.utm_source,
+        utm_medium: attributionParams.utm_medium,
+        utm_campaign: attributionParams.utm_campaign,
+        utm_term: attributionParams.utm_term,
+        utm_content: attributionParams.utm_content,
+      });
+      
+      setHasTrackedView(true);
+    }
+  }, [posthog, hasTrackedView]);
+
+  // Handle device detection and auto-redirect
   useEffect(() => {
     const device = detectDevice();
     
     if (device === 'ios') {
+      // Track auto-redirect before redirecting
+      if (posthog) {
+        posthog.capture('app_store_clicked', {
+          store_type: 'ios',
+          click_type: 'auto_redirect',
+          referral_source: attribution.ref,
+          campaign: attribution.campaign,
+          partner: attribution.partner,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+        });
+      }
       window.location.href = APPLE_APP_STORE_URL;
     } else if (device === 'android') {
+      // Track auto-redirect before redirecting
+      if (posthog) {
+        posthog.capture('app_store_clicked', {
+          store_type: 'android',
+          click_type: 'auto_redirect',
+          referral_source: attribution.ref,
+          campaign: attribution.campaign,
+          partner: attribution.partner,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+        });
+      }
       window.location.href = GOOGLE_PLAY_STORE_URL;
     }
     // If web/desktop, stay on this page to show both options
-  }, []);
+  }, [posthog, attribution]);
+
+  // Handle manual button clicks
+  const handleAppStoreClick = (storeType: 'ios' | 'android') => {
+    if (posthog) {
+      posthog.capture('app_store_clicked', {
+        store_type: storeType,
+        click_type: 'manual',
+        referral_source: attribution.ref,
+        campaign: attribution.campaign,
+        partner: attribution.partner,
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-[#f8f9fa] via-white to-[#f1f3f4]">
@@ -47,6 +150,7 @@ export default function InstallPage() {
         <div className="flex flex-col sm:flex-row items-center sm:gap-4 w-full sm:w-fit mx-auto">
           <a
             href={APPLE_APP_STORE_URL}
+            onClick={() => handleAppStoreClick('ios')}
             className="inline-flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-auto text-white bg-black hover:bg-neutral-900"
             aria-label="Download on the App Store"
             target="_blank"
@@ -64,6 +168,7 @@ export default function InstallPage() {
           </a>
           <a
             href={GOOGLE_PLAY_STORE_URL}
+            onClick={() => handleAppStoreClick('android')}
             className="inline-flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-auto text-white bg-black hover:bg-neutral-900"
             aria-label="Get it on Google Play"
             target="_blank"

@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function PartnersPage() {
   return (
@@ -130,7 +129,7 @@ export default function PartnersPage() {
               </div>
               <h3 className="text-lg font-semibold text-[#0a0a23] mb-2">Explore Opportunities</h3>
               <p className="text-[#6b7280]">
-                We'll identify the best ways to leverage your expertise within our platform.
+                We&apos;ll identify the best ways to leverage your expertise within our platform.
               </p>
             </div>
 
@@ -188,7 +187,7 @@ export default function PartnersPage() {
               Is there compensation for partners?
             </h3>
             <p className="text-[#6b7280] leading-[1.6]">
-              Yes, we offer various compensation models including revenue sharing for content, consulting fees for clinical guidance, research grants, and referral commissions. We'll discuss the specifics based on your partnership type.
+              Yes, we offer various compensation models including revenue sharing for content, consulting fees for clinical guidance, research grants, and referral commissions. We&apos;ll discuss the specifics based on your partnership type.
             </p>
           </div>
 

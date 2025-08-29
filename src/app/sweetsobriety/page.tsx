@@ -27,7 +27,7 @@ function FoodAnimatedText() {
   useEffect(() => {
     const t = setInterval(() => setI((n) => (n + 1) % options.length), 3000);
     return () => clearInterval(t);
-  }, []);
+  }, [options.length]);
 
   return (
     <div className="relative inline-block h-[1.2em] overflow-hidden">

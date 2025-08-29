@@ -17,7 +17,7 @@ export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
               App Store Review
             </h3>
             <p className="text-[1.2rem] leading-[1.6] text-[#333] mb-6 font-medium">
-              "{review.text}"
+              &ldquo;{review.text}&rdquo;
             </p>
             <div className="text-[#ffc107] text-2xl tracking-wider">★★★★★</div>
           </div>

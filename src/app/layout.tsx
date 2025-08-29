@@ -3,7 +3,6 @@ import { Lato, Merriweather } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PHProvider from "@/components/PostHogProvider";
-import { Suspense } from "react";
 import "./globals.css";
 
 const lato = Lato({

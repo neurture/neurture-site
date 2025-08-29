@@ -47,7 +47,7 @@ export default function ExpertsSection({ title, experts }: ExpertsSectionProps) 
               </div>
             )}
             <p className="text-lg leading-[1.6] text-[#333]">
-              "{expert.quote}"
+              &ldquo;{expert.quote}&rdquo;
             </p>
           </div>
         ))}

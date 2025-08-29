@@ -18,7 +18,7 @@ export default function NotFound() {
         {/* Compassionate message */}
         <div className="mb-8 space-y-4">
           <p className="text-lg text-[#6b7280] leading-relaxed">
-            Sometimes we all take unexpected detours. That's okay – what matters is how we respond and where we go next.
+            Sometimes we all take unexpected detours. That&apos;s okay – what matters is how we respond and where we go next.
           </p>
           <p className="text-base text-[#6b7280] leading-relaxed">
             Just like building healthy habits, finding your way is about taking one step at a time.
@@ -28,7 +28,7 @@ export default function NotFound() {
         {/* Helpful navigation */}
         <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h2 className="text-lg font-semibold text-[#0a0a23] mb-4">
-            Let's get you back on track
+            Let&apos;s get you back on track
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
             <Link 
@@ -104,7 +104,7 @@ export default function NotFound() {
         {/* Gentle affirmation */}
         <div className="p-4 bg-gradient-to-r from-[#10b981]/10 to-[#3b82f6]/10 rounded-lg border border-[#10b981]/20">
           <p className="text-sm font-medium text-[#0a0a23] italic">
-            "Every step forward, no matter how small, is progress worth celebrating."
+            &ldquo;Every step forward, no matter how small, is progress worth celebrating.&rdquo;
           </p>
         </div>
       </div>
