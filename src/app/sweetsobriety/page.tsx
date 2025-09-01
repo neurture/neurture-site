@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import FAQ from "@/components/FAQ";
-import HeroSection from "@/components/HeroSection";
+import SweetSobrietyHeroSection from "@/components/SweetSobrietyHeroSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import VideoSection from "@/components/VideoSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import ExpertsSection from "@/components/ExpertsSection";
-import QRSection from "@/components/QRSection";
+import SweetSobrietyQRSection from "@/components/SweetSobrietyQRSection";
 
 function FoodAnimatedText() {
   const options = [
@@ -103,7 +103,7 @@ export default function SweetSobrietyPage() {
 
   return (
     <>
-      <HeroSection
+      <SweetSobrietyHeroSection
         title={heroTitle}
         subtitle="Confront your cravings, track your progress, and build lasting change with methods used by expert clinicians around the world."
       />
@@ -129,7 +129,7 @@ export default function SweetSobrietyPage() {
         experts={experts}
       />
 
-      <QRSection />
+      <SweetSobrietyQRSection />
     </>
   );
 }
