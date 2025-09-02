@@ -61,13 +61,13 @@ export default function SweetSobrietyPage() {
 
   const reviews = [
     {
-      text: "This app has been a game-changer for my relationship with food. I finally understand my emotional eating triggers."
+      text: "I see this app as being something I will use to reach many of my goals and manage my habits."
     },
     {
-      text: "The mindful eating techniques and craving management tools have helped me break free from years of binge eating patterns."
+      text: "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
     },
     {
-      text: "No more guilt and shame around food. The self-compassion approach has transformed how I view my eating habits."
+      text: "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
     }
   ];
 
@@ -83,20 +83,20 @@ export default function SweetSobrietyPage() {
       name: "Amanda Raybould",
       title: "Amanda Raybould, MSW, LICSW",
       organization: "Arlington School",
-      quote: "The mindful eating approaches and emotional regulation tools in Neurture align perfectly with evidence-based eating disorder treatment principles.",
+      quote: "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
       imageSrc: "/images/amanda.jpg"
     },
     {
       name: "Dr. Sarah Coe-Odess",
       title: "Dr. Sarah Coe-Odess",
-      organization: "Mass General Hospital", 
-      quote: "Neurture provides accessible, science-backed resources for breaking unhealthy eating patterns and building a compassionate relationship with food and body.",
+      organization: "Mass General Hospital",
+      quote: "Neurture is a valuable, evidence-based resource with structured tools that empower users to break unhealthy patterns and pursue a more intentional, fulfilling life.",
       imageSrc: "/images/team/sarah.jpg"
     },
     {
       name: "Amanda Dean",
       title: "Amanda Dean LMSW",
-      quote: "The combination of urge-surfing techniques and 24/7 AI support makes Neurture an invaluable tool for anyone struggling with emotional eating and food cravings.",
+      quote: "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
       initials: "AD"
     }
   ];
