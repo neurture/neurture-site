@@ -65,21 +65,21 @@ export default function HomePage() {
 
   const reviews = [
     {
-      text: "I see this app as being something I will use to reach many of my goals and manage my habits."
+      text: "I see this app as being something I will use to reach many of my goals and manage my habits.",
     },
     {
-      text: "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
+      text: "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me.",
     },
     {
-      text: "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
-    }
+      text: "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways.",
+    },
   ];
 
   const features = [
-    "Courses reviewed by clinical psychologists (CBT, ACT, etc)",
-    "Chat with the AI assistant to get out of your head or get specific recommendations for meditations or other resources",
-    "Affirmations UI helps you change your thoughts",
-    "Easily digitize handwritten journal entries"
+    "Get instant support when urges feel overwhelming - AI chat available 24/7",
+    "45+ evidence-based coping tools designed to help you through difficult moments",
+    "Track patterns and triggers to understand what works best for you",
+    "Guided breathing, mindfulness, and grounding techniques when you need them most",
   ];
 
   const experts = [
@@ -87,22 +87,25 @@ export default function HomePage() {
       name: "Amanda Raybould",
       title: "Amanda Raybould, MSW, LICSW",
       organization: "Arlington School",
-      quote: "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
-      imageSrc: "/images/amanda.jpg"
+      quote:
+        "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
+      imageSrc: "/images/amanda.jpg",
     },
     {
       name: "Dr. Sarah Coe-Odess",
       title: "Dr. Sarah Coe-Odess",
       organization: "Mass General Hospital",
-      quote: "Neurture is a valuable, evidence-based resource with structured tools that empower users to break unhealthy patterns and pursue a more intentional, fulfilling life.",
-      imageSrc: "/images/team/sarah.jpg"
+      quote:
+        "Neurture is a valuable, evidence-based resource with structured tools that empower users to break unhealthy patterns and pursue a more intentional, fulfilling life.",
+      imageSrc: "/images/team/sarah.jpg",
     },
     {
       name: "Amanda Dean",
       title: "Amanda Dean LMSW",
-      quote: "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
-      initials: "AD"
-    }
+      quote:
+        "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
+      initials: "AD",
+    },
   ];
 
   return (
@@ -114,7 +117,7 @@ export default function HomePage() {
 
       <ReviewsSection reviews={reviews} />
 
-      <VideoSection 
+      <VideoSection
         videoId="4bIgPUopX0g"
         title="Neurture: Learn your brain, change addictive habits"
       />
@@ -122,8 +125,8 @@ export default function HomePage() {
       <FeaturesSection
         title="Understand your brain, change your brain"
         features={features}
-        imageSrc="/images/picture-journal.png"
-        imageAlt="Smartphone taking picture of open journal"
+        imageSrc="/images/phone-mockup-analyze-screen.png"
+        imageAlt="Phone mockup showing app interface"
       />
 
       <FAQ />
