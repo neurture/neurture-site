@@ -8,16 +8,24 @@ interface FeaturesSectionProps {
   imageAlt: string;
 }
 
-export default function FeaturesSection({ title, features, imageSrc, imageAlt }: FeaturesSectionProps) {
+export default function FeaturesSection({
+  title,
+  features,
+  imageSrc,
+  imageAlt,
+}: FeaturesSectionProps) {
   return (
     <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between max-w-[1200px] mx-auto my-24 px-8 gap-12">
       <div className="flex-1 text-center">
         <Image
           src={imageSrc}
           alt={imageAlt}
-          width={400}
-          height={400}
+          width={800}
+          height={1334}
           className="max-w-full h-auto rounded-[10px]"
+          priority={false}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
       </div>
       <div className="flex-1">
