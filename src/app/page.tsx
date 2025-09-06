@@ -123,7 +123,7 @@ export default function HomePage() {
       />
 
       <FeaturesSection
-        title="Understand your brain, change your brain"
+        title="Tools that work when urges hit"
         features={features}
         imageSrc="/images/phone-mockup-analyze-screen.png"
         imageAlt="Phone mockup showing app interface"
