@@ -5,10 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import FAQ from "@/components/FAQ";
 import HeroSection from "@/components/HeroSection";
+import TrustIndicators from "@/components/TrustIndicators";
 import ReviewsSection from "@/components/ReviewsSection";
 import VideoSection from "@/components/VideoSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import ExpertsSection from "@/components/ExpertsSection";
+import PartnersSection from "@/components/PartnersSection";
 import QRSection from "@/components/QRSection";
 
 function AnimatedText() {
@@ -115,6 +117,8 @@ export default function HomePage() {
         subtitle="Confront your cravings, track your progress, and build lasting change with methods used by expert clinicians around the world."
       />
 
+      <TrustIndicators />
+
       <ReviewsSection reviews={reviews} />
 
       <VideoSection
@@ -135,6 +139,8 @@ export default function HomePage() {
         title="Recommended by Clinical Experts"
         experts={experts}
       />
+
+      <PartnersSection />
 
       <QRSection />
     </>
