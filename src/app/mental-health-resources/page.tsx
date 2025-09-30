@@ -2,11 +2,27 @@
 
 import { useState } from 'react';
 
-const countries = [
+type CrisisResource = {
+  name: string;
+  phone?: string;
+  text?: string;
+  website: string;
+};
+
+type CountryResource = {
+  id: string;
+  name: string;
+  emergency: string;
+  emergencyWebsite?: string;
+  crisis: CrisisResource;
+};
+
+const countries: CountryResource[] = [
   {
     id: 'australia',
     name: 'Australia',
     emergency: 'Call 000 for immediate police, fire, or medical emergencies',
+    emergencyWebsite: 'healthdirect.gov.au/mental-health-emergencies',
     crisis: {
       name: 'Lifeline Australia (24/7)',
       phone: '13 11 14',
@@ -18,6 +34,7 @@ const countries = [
     id: 'canada',
     name: 'Canada',
     emergency: 'Call 911 for immediate police, fire, or medical emergencies',
+    emergencyWebsite: 'canada.ca/en/public-health/services/mental-health-services/mental-health-get-help.html',
     crisis: {
       name: 'Talk Suicide Canada (24/7)',
       phone: '1-833-456-4566',
@@ -49,6 +66,7 @@ const countries = [
     id: 'united-kingdom',
     name: 'United Kingdom',
     emergency: 'Call 999 for immediate police, fire, or medical emergencies',
+    emergencyWebsite: 'nhs.uk/nhs-services/urgent-and-emergency-care-services',
     crisis: {
       name: 'Samaritans (24/7)',
       phone: '116 123',
@@ -60,6 +78,7 @@ const countries = [
     id: 'united-states',
     name: 'United States',
     emergency: 'Call 911 for immediate police, fire, or medical emergencies',
+    emergencyWebsite: 'usa.gov/emergency-services',
     crisis: {
       name: '988 Suicide & Crisis Lifeline (24/7)',
       phone: '988',
