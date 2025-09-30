@@ -17,6 +17,12 @@ export default function Footer() {
             Press Kit
           </Link>
         </div>
+        <div>
+          <h3 className="text-2xl mb-6">Support</h3>
+          <Link href="/mental-health-resources" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
+            Mental health resources
+          </Link>
+        </div>
       </div>
     </footer>
   );

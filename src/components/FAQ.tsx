@@ -49,6 +49,14 @@ const faqData: FAQItem[] = [
     answer: [
       "Absolutely! With Neurture you can set goals and use tools that will help you actually achieve your New Years resolutions. With check-ins anytime and a library of resources to help you understand your habits and yourself, Neurture is a great tool for reaching your new year's goals."
     ]
+  },
+  {
+    question: "What should I do if I'm in crisis?",
+    answer: [
+      "If you're experiencing a mental health crisis or having thoughts of suicide, please reach out for immediate help. In the US, call or text 988 for the Suicide and Crisis Lifeline, available 24/7. You can also text HOME to 741741 for the Crisis Text Line.",
+      "For comprehensive crisis support resources in your country, visit our mental health resources page.",
+      "Neurture is designed to support you with daily challenges and unwanted habits, but it is not a substitute for emergency mental health services. Your safety is the top priority—please don't hesitate to reach out for professional help when you need it."
+    ]
   }
 ];
 
