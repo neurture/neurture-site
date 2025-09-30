@@ -12,6 +12,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import ExpertsSection from "@/components/ExpertsSection";
 import PartnersSection from "@/components/PartnersSection";
 import QRSection from "@/components/QRSection";
+import EvidenceSection from "@/components/EvidenceSection";
 
 function AnimatedText() {
   const options = [
@@ -78,10 +79,10 @@ export default function HomePage() {
   ];
 
   const features = [
-    "Get instant support when urges feel overwhelming - AI chat available 24/7",
-    "45+ evidence-based coping tools designed to help you through difficult moments",
-    "Track patterns and triggers to understand what works best for you",
-    "Guided breathing, mindfulness, and grounding techniques when you need them most",
+    "Ride out cravings safely with urge surfing and in-the-moment coaching",
+    "Calm your nervous system with guided breathing, grounding, and mindfulness",
+    "Rewire unhelpful thought patterns by challenging permission-giving thoughts",
+    "Learn what works: track urges, triggers, and outcomes across 45+ evidence-based tools",
   ];
 
   const experts = [
@@ -114,7 +115,7 @@ export default function HomePage() {
     <>
       <HeroSection
         title={heroTitle}
-        subtitle="Confront your cravings, track your progress, and build lasting change with methods used by expert clinicians around the world."
+        subtitle="Confront cravings, track your progress, and build lasting change with tools from ACT, CBT, and mindfulness-based relapse prevention."
       />
 
       <TrustIndicators />
@@ -132,6 +133,8 @@ export default function HomePage() {
         imageSrc="/images/phone-mockup-analyze-screen.png"
         imageAlt="Phone mockup showing app interface"
       />
+
+      <EvidenceSection />
 
       <FAQ />
 
