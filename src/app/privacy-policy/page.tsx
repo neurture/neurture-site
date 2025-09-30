@@ -3,13 +3,20 @@ export default function PrivacyPolicyPage() {
     <main className="bg-[#f8f9fa]">
       <section className="max-w-[800px] mx-auto py-12 px-8">
         <h1 className="text-[3rem] text-[#0a0a23] mb-6 font-serif">Privacy policy</h1>
-        <span className="italic mb-8 block">Effective Date: February 9, 2024</span>
+        <span className="italic mb-8 block">Last Updated: September 30, 2025</span>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">1. Introduction</h2>
         <p className="mb-6 leading-[1.6]">
           Welcome to Neurture. This Privacy Policy outlines our practices
           regarding the collection, use, and sharing of information when you use
           our app.
+        </p>
+        <p className="mb-6 leading-[1.6]">
+          <strong>Privacy-first design:</strong> Nearly all of your data—including journal entries,
+          check-ins, conversations, plans, and progress tracking—is stored locally on your device.
+          We do not store this personal content on our servers. The only data shared with third-party
+          services is what's necessary to provide specific features like AI chat and image-to-text
+          conversion, as detailed below.
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">2. Data Collection</h2>
@@ -19,31 +26,24 @@ export default function PrivacyPolicyPage() {
         </p>
         <ul className="ml-8 mb-6">
           <li className="mb-4 leading-[1.6]">Images of handwritten journal entries</li>
-          <li className="mb-4 leading-[1.6]">Audio recordings of voice memos</li>
           <li className="mb-4 leading-[1.6]">Chat messages submitted for interaction with our AI feature</li>
         </ul>
         <p className="mb-6 leading-[1.6]">
-          In addition to the data mentioned previously, we have partnered with
-          Mixpanel to collect and analyze user event metrics to better
-          understand how our services are used. The types of data collected via
-          Mixpanel include:
+          We also collect analytics and technical information to improve the app:
         </p>
         <ul className="ml-8 mb-6">
           <li className="mb-4 leading-[1.6]">
-            Generic actions taken within the app (e.g., starting a new
-            conversation, saving a journal entry)
+            <strong>PostHog (usage analytics):</strong> Generic actions taken within the app
+            (e.g., starting a new conversation, saving a journal entry), interaction with app
+            features, and aggregated performance metrics. PostHog does not collect personally
+            identifiable information.
           </li>
           <li className="mb-4 leading-[1.6]">
-            Interaction with app features (e.g., using the chat feature, adding
-            a log entry)
+            <strong>Sentry (error logging):</strong> Error messages, stack traces, and technical
+            diagnostic information when the app encounters issues. Personally identifiable information
+            is automatically scrubbed before being sent to Sentry.
           </li>
-          <li className="mb-4 leading-[1.6]">Aggregated usage data and app performance metrics</li>
         </ul>
-        <p className="mb-6 leading-[1.6]">
-          This information helps us improve app functionality and user
-          experience. Note that Mixpanel does not collect personally
-          identifiable information through this process.
-        </p>
         <p className="mb-6 leading-[1.6]">
           If you install Neurture from a partner link we store a non-personal
           partner identifier so we can share revenue with that partner. No
@@ -54,19 +54,21 @@ export default function PrivacyPolicyPage() {
         <p className="mb-6 leading-[1.6]">The collected data is used for:</p>
         <ul className="ml-8 mb-6">
           <li className="mb-4 leading-[1.6]">
-            Converting journal entry images to text (using Google Cloud OCR)
+            Converting handwritten journal entry images to text (using Google Cloud)
           </li>
-          <li className="mb-4 leading-[1.6]">Processing voice memos and chat messages (using OpenAI API)</li>
-          <li className="mb-4 leading-[1.6]">Analyzing app usage and interaction patterns (using Mixpanel)</li>
+          <li className="mb-4 leading-[1.6]">Processing chat messages (using OpenAI API)</li>
+          <li className="mb-4 leading-[1.6]">Analyzing app usage and interaction patterns (using PostHog)</li>
+          <li className="mb-4 leading-[1.6]">Monitoring and fixing technical errors (using Sentry)</li>
         </ul>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">4. Data Sharing</h2>
         <p className="mb-6 leading-[1.6]">Data is shared with:</p>
         <ul className="ml-8 mb-6">
-          <li className="mb-4 leading-[1.6]">OpenAI for processing chat messages and voice memos</li>
-          <li className="mb-4 leading-[1.6]">Google Cloud for OCR services</li>
-          <li className="mb-4 leading-[1.6]">Vercel for temporary storage of images and audio files</li>
-          <li className="mb-4 leading-[1.6]">Mixpanel for user metrics</li>
+          <li className="mb-4 leading-[1.6]">OpenAI for processing chat messages</li>
+          <li className="mb-4 leading-[1.6]">Google Cloud for converting handwritten images to text</li>
+          <li className="mb-4 leading-[1.6]">Supabase for temporary storage of journal images during text conversion and for authentication</li>
+          <li className="mb-4 leading-[1.6]">PostHog for user metrics</li>
+          <li className="mb-4 leading-[1.6]">Sentry for error logging and monitoring</li>
         </ul>
         <p className="mb-6 leading-[1.6]">
           These third-party services handle your data according to their privacy
@@ -90,8 +92,39 @@ export default function PrivacyPolicyPage() {
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">6. Data Security</h2>
         <p className="mb-6 leading-[1.6]">
-          We currently do not employ additional security measures or encryption.
+          We take data security seriously and work with industry-leading service providers
+          who implement strong security measures to protect your information:
         </p>
+        <ul className="ml-8 mb-6">
+          <li className="mb-4 leading-[1.6]">
+            <strong>Encryption:</strong> All data is encrypted in transit using TLS 1.2 or higher,
+            and at rest using industry-standard AES-256 encryption.
+          </li>
+          <li className="mb-4 leading-[1.6]">
+            <strong>OpenAI (chat processing):</strong> Does not use your data to train
+            AI models. Data is retained for 30 days for abuse monitoring, then deleted.
+            SOC 2 Type 2 and ISO 27001 certified.
+          </li>
+          <li className="mb-4 leading-[1.6]">
+            <strong>Google Cloud (journal image processing):</strong> Images are processed in memory
+            and not saved to disk. Google does not use your images to train models or claim
+            ownership of your content. HIPAA-compliant and ISO 27001 certified.
+          </li>
+          <li className="mb-4 leading-[1.6]">
+            <strong>Supabase (image storage and authentication):</strong> Journal images are temporarily
+            uploaded for text conversion only, then passed to Google Cloud. Provides enterprise-grade security
+            with encryption at rest and in transit. SOC 2 Type 2 certified and GDPR compliant.
+          </li>
+          <li className="mb-4 leading-[1.6]">
+            <strong>PostHog (analytics):</strong> SOC 2 Type II certified with encryption and
+            access controls. Does not require personally identifiable information.
+          </li>
+          <li className="mb-4 leading-[1.6]">
+            <strong>Sentry (error monitoring):</strong> Automatically scrubs personally identifiable
+            information from error reports. SOC 2 Type 2 and ISO 27001 certified. Error data retained
+            for 30 days, then deleted. Does not track users across apps.
+          </li>
+        </ul>
         <p className="mb-6 leading-[1.6]">
           In the event of a data breach, we will notify affected users via email
           and in-app notifications.
