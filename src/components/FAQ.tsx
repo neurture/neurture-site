@@ -15,14 +15,6 @@ const faqData: FAQItem[] = [
     ]
   },
   {
-    question: "Do you have investors or conflicts of interest?",
-    answer: [
-      "Neurture has no outside funding or advertising. We earn revenue from user subscriptions.",
-      "In some cases, if you install via a partner link, we may share a portion of revenue with that partner; partners do not access health data and have no editorial control over our content or recommendations.",
-      "We have no conflicts of interest to disclose. See details on our Team page.",
-    ],
-  },
-  {
     question: "Is Neurture just for addicts?",
     answer: [
       "No. Neurture is designed to support any individuals who are looking to address unwanted, compulsive, or addictive behaviors that they wish to change. It offers resources and tools like meditations, affirmations, journaling, and the My Map feature aimed at fostering self-awareness and promoting healthier habits.",
@@ -65,6 +57,14 @@ const faqData: FAQItem[] = [
       "For comprehensive crisis support resources in your country, visit our mental health resources page.",
       "Neurture is designed to support you with daily challenges and unwanted habits, but it is not a substitute for emergency mental health services. Your safety is the top priority—please don't hesitate to reach out for professional help when you need it."
     ]
+  },
+  {
+    question: "Do you have investors or conflicts of interest?",
+    answer: [
+      "Neurture has no outside funding or advertising. We earn revenue from user subscriptions.",
+      "In some cases, if you install via a partner link, we may share a portion of revenue with that partner; partners do not access health data and have no editorial control over our content or recommendations.",
+      "We have no conflicts of interest to disclose. See details on our Team page.",
+    ],
   }
 ];
 
