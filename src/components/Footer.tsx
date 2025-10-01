@@ -13,6 +13,9 @@ export default function Footer() {
           <Link href="/privacy-policy" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
             Privacy policy
           </Link>
+          <Link href="/terms" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
+            Terms of Service
+          </Link>
           <Link href="/press-kit" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
             Press Kit
           </Link>
