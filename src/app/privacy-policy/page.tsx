@@ -3,7 +3,7 @@ export default function PrivacyPolicyPage() {
     <main className="bg-[#f8f9fa]">
       <section className="max-w-[800px] mx-auto py-12 px-8">
         <h1 className="text-[3rem] text-[#0a0a23] mb-6 font-serif">Privacy policy</h1>
-        <span className="italic mb-8 block">Last Updated: September 30, 2025</span>
+        <span className="italic mb-8 block">Last Updated: October 1, 2025</span>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">1. Introduction</h2>
         <p className="mb-6 leading-[1.6]">
@@ -77,17 +77,20 @@ export default function PrivacyPolicyPage() {
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">5. Data Management and User Rights</h2>
         <p className="mb-6 leading-[1.6]">
-          Users can view, modify, and delete their data within the app. However,
-          this does not delete it from our cloud storage or that of third-party
-          providers.
+          Users can view, modify, and delete their data within the app. For
+          image-to-text (OCR), any journal images temporarily uploaded for
+          transcription are deleted immediately after processing. If processing
+          is interrupted, an automated cleanup removes any remaining images
+          within approximately 60 minutes.
         </p>
         <p className="mb-6 leading-[1.6]">
           Data deletion requests can be made via email to
           privacy@neurtureapp.com.
         </p>
         <p className="mb-6 leading-[1.6]">
-          Our app retains data indefinitely. Third-party providers retain data
-          according to their privacy policies.
+          Our app retains on-device data until you delete it. For transient OCR
+          uploads, see the deletion timeline above. Third-party providers may
+          retain limited operational logs according to their privacy policies.
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">6. Data Security</h2>
@@ -112,8 +115,10 @@ export default function PrivacyPolicyPage() {
           </li>
           <li className="mb-4 leading-[1.6]">
             <strong>Supabase (image storage and authentication):</strong> Journal images are temporarily
-            uploaded for text conversion only, then passed to Google Cloud. Provides enterprise-grade security
-            with encryption at rest and in transit. SOC 2 Type 2 certified and GDPR compliant.
+            uploaded solely for text conversion, then passed to Google Cloud. Images are deleted immediately
+            after successful processing; if processing is interrupted, an automated cleanup removes any
+            remaining images within approximately 60 minutes. Provides enterprise-grade security with
+            encryption at rest and in transit. SOC 2 Type 2 certified and GDPR compliant.
           </li>
           <li className="mb-4 leading-[1.6]">
             <strong>PostHog (analytics):</strong> SOC 2 Type II certified with encryption and
