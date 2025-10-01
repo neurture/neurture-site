@@ -25,6 +25,9 @@ export default function Footer() {
           <Link href="/mental-health-resources" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
             Mental health resources
           </Link>
+          <Link href="/team#funding-transparency" className="text-white/80 no-underline mb-2 block text-lg hover:text-white hover:underline">
+            Transparency
+          </Link>
         </div>
       </div>
     </footer>
