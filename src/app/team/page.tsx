@@ -6,15 +6,7 @@ export default function TeamPage() {
       <section className="max-w-[1000px] mx-auto my-16 px-8">
         <h1 className="text-[3rem] text-[#0a0a23] text-center mb-12 font-serif">Meet the Team</h1>
 
-        <section id="funding-transparency" className="bg-white rounded-[10px] shadow-[0_0_20px_rgba(0,0,0,0.05)] p-6 mb-12">
-          <h2 className="text-[1.5rem] text-[#0a0a23] mb-3 font-serif">Funding & Conflicts of Interest</h2>
-          <p className="text-[1.1rem] leading-[1.6] text-[#333] mb-3">
-            Neurture has no outside funding or advertising. Revenue comes from user subscriptions.
-            In some cases, if you install via a partner link, we may share a portion of revenue with that
-            partner. Partners do not access health data and have no editorial control over our content
-            or recommendations. We have no conflicts of interest to disclose.
-          </p>
-        </section>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-8">
           <div className="bg-white rounded-[10px] shadow-[0_0_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
             <div className="pt-6 px-6">
@@ -54,6 +46,16 @@ export default function TeamPage() {
             </div>
           </div>
         </div>
+
+        <section id="funding-transparency" className="bg-white rounded-[10px] shadow-[0_0_20px_rgba(0,0,0,0.05)] p-6 mt-12">
+          <h2 className="text-[1.5rem] text-[#0a0a23] mb-3 font-serif">Funding & Conflicts of Interest</h2>
+          <p className="text-[1.1rem] leading-[1.6] text-[#333] mb-3">
+            Neurture has no outside funding or advertising. Revenue comes from user subscriptions.
+            In some cases, if you install via a partner link, we may share a portion of revenue with that
+            partner. Partners do not access health data and have no editorial control over our content
+            or recommendations. We have no conflicts of interest to disclose.
+          </p>
+        </section>
       </section>
     </main>
   );
