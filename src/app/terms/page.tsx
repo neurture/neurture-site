@@ -55,12 +55,17 @@ export default function TermsPage() {
           use, and safeguard information. Please review it at <a className="text-[#3b82f6]" href="/privacy-policy">/privacy-policy</a>.
         </p>
 
-        <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">7. AI Features and Limitations</h2>
-        <p className="mb-6 leading-[1.6]">
-          The App may use AI services to provide supportive suggestions. AI outputs can be inaccurate or
-          incomplete and should not be relied on as professional advice. Use your judgment and consult a
-          qualified professional when needed.
+        <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">7. AI Features, Usage, and Bias</h2>
+        <p className="mb-4 leading-[1.6]">
+          The App may use AI services to provide supportive suggestions and help route you to relevant tools
+          (e.g., meditations, prompts). AI outputs can be inaccurate or incomplete and should not be relied on as
+          professional advice. Use your judgment and consult a qualified professional when needed.
         </p>
+        <ul className="list-disc ml-6 mb-6 leading-[1.6]">
+          <li><strong>Data use:</strong> We send only the text you provide for AI processing. We do not use chat data to train our own models. Third‑party AI providers process data according to their policies.</li>
+          <li><strong>Bias monitoring:</strong> We review prompts and sampled outputs for tone and fairness, avoid sensitive demographic assumptions, and iterate to reduce biased or harmful responses.</li>
+          <li><strong>Human oversight:</strong> We design AI to assist—not replace—human judgment. You always decide what to act on.</li>
+        </ul>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">8. Disclaimers</h2>
         <p className="mb-6 leading-[1.6]">

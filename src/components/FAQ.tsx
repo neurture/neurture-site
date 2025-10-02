@@ -24,6 +24,13 @@ const faqData: FAQItem[] = [
     ]
   },
   {
+    question: "Who is Neurture intended for, and what reading level do you write for?",
+    answer: [
+      "Intended users: Neurture is designed for adults and older teens who want to reduce or change unwanted habits and behaviors (e.g., screen time, alcohol, vaping, gambling, impulsive spending) and build healthier routines. It is not a substitute for professional care or emergency services.",
+      "Reading level: We aim to write content at a general audience reading level (roughly 8th–10th grade) using plain language, short paragraphs, and clear headings. We periodically review content to keep it accessible."
+    ]
+  },
+  {
     question: "Is this like an AI therapist?",
     answer: [
       "There is an AI assistant as part of Neurture but it is not a substitute or replacement for therapy or a mental health professional. The AI chat serves as a way to direct users to vetted resources within Neurture and is not intended to be used as a therapist. Chatting with the assistant is completely anonymous and can help users express their thoughts and feelings in a way that can be healing."
