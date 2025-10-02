@@ -27,7 +27,8 @@ const faqData: FAQItem[] = [
     question: "Who is Neurture intended for, and what reading level do you write for?",
     answer: [
       "Intended users: Neurture is designed for adults and older teens who want to reduce or change unwanted habits and behaviors (e.g., screen time, alcohol, vaping, gambling, impulsive spending) and build healthier routines. It is not a substitute for professional care or emergency services.",
-      "Reading level: We aim to write content at a general audience reading level (roughly 8th–10th grade) using plain language, short paragraphs, and clear headings. We periodically review content to keep it accessible."
+      "Reading level: We aim to write content at a general audience reading level (roughly 8th–10th grade) using plain language, short paragraphs, and clear headings. We periodically review content to keep it accessible.",
+      "Language: English only at this time."
     ]
   },
   {
