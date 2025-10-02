@@ -62,7 +62,7 @@ export default function TermsPage() {
           professional advice. Use your judgment and consult a qualified professional when needed.
         </p>
         <ul className="list-disc ml-6 mb-6 leading-[1.6]">
-          <li><strong>Data use:</strong> We send only the text you provide for AI processing. We do not use chat data to train our own models. Third‑party AI providers process data according to their policies.</li>
+          <li><strong>Data use:</strong> We send only the text you provide for AI processing. We do not use chat data to train our own models. For chat, we use OpenAI’s API; per OpenAI’s policy, API data is not used to train OpenAI models and may be retained for up to 30 days for abuse monitoring (subject to their policy).</li>
           <li><strong>Bias monitoring:</strong> We review prompts and sampled outputs for tone and fairness, avoid sensitive demographic assumptions, and iterate to reduce biased or harmful responses.</li>
           <li><strong>Human oversight:</strong> We design AI to assist—not replace—human judgment. You always decide what to act on.</li>
         </ul>
