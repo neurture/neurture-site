@@ -23,24 +23,14 @@ export default function TrustIndicators() {
 
   const featured = [
     {
-      name: "IFACC 2025",
-      logo: "/images/logos/ifacc25-logo.png",
-      alt: "IFACC 2025 Conference logo"
+      name: "Mass General Brigham",
+      logo: "/images/logos/Mass-General-Brigham-Logo.png",
+      alt: "Mass General Brigham logo"
     },
     {
-      name: "ProductHunt",
-      logo: "/images/logos/product-hunt-logo-horizontal-orange.png",
-      alt: "Product Hunt logo"
-    },
-    {
-      name: "Assistive Technology Update",
-      logo: "/images/logos/assistive-tech-logo.png",
-      alt: "Assistive Technology Update podcast logo"
-    },
-    {
-      name: "Entrepreneur Happy Hour",
-      logo: "/images/logos/entrepreneur-happy-hour-logo.png",
-      alt: "Entrepreneur Happy Hour podcast logo"
+      name: "McLean Hospital",
+      logo: "/images/logos/McLean_Hospital_logo.svg",
+      alt: "McLean Hospital logo"
     }
   ];
 
@@ -50,7 +40,7 @@ export default function TrustIndicators() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
           <h3 className="font-sans text-sm font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
-            FEATURED IN
+            LOVED BY THERAPISTS AT
           </h3>
           {featured.map((item, index) => (
             <div key={index} className="flex items-center justify-center">
