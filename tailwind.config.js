@@ -14,6 +14,16 @@ module.exports = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        brand: {
+          green: '#3FB281',
+          'green-light': '#43C78F',
+          'bg-dark': '#140F35',
+          'bg-mid': '#171047',
+          'bg-light': '#30377F',
+          'circle-dark': '#EDE0D0',
+          'circle-mid': '#FFF2E3',
+          'circle-light': '#FFFBF5',
+        },
       },
     },
   },

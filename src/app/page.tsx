@@ -13,6 +13,7 @@ import ExpertsSection from "@/components/ExpertsSection";
 import PartnersSection from "@/components/PartnersSection";
 import QRSection from "@/components/QRSection";
 import EvidenceSection from "@/components/EvidenceSection";
+import AIComparison from "@/components/AIComparison";
 
 function AnimatedText() {
   const options = [
@@ -146,6 +147,8 @@ export default function HomePage() {
       <PartnersSection />
 
       <QRSection />
+
+      <AIComparison />
     </>
   );
 }

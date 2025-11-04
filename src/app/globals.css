@@ -11,6 +11,16 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  /* Brand colors */
+  --color-brand-green: #3FB281;
+  --color-brand-green-light: #43C78F;
+  --color-brand-bg-dark: #140F35;
+  --color-brand-bg-mid: #171047;
+  --color-brand-bg-light: #30377F;
+  --color-brand-circle-dark: #EDE0D0;
+  --color-brand-circle-mid: #FFF2E3;
+  --color-brand-circle-light: #FFFBF5;
 }
 
 @layer base {

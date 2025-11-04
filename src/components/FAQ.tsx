@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-interface FAQItem {
+export interface FAQItem {
   question: string;
   answer: string[];
 }
 
-const faqData: FAQItem[] = [
+const defaultFaqData: FAQItem[] = [
   {
     question: "What behaviors can I work on with Neurture?",
     answer: [
@@ -77,22 +77,35 @@ const faqData: FAQItem[] = [
   },
 ];
 
-export default function FAQ() {
+interface FAQProps {
+  questions?: FAQItem[];
+  title?: string;
+  darkMode?: boolean;
+}
+
+export default function FAQ({ questions, title, darkMode = true }: FAQProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const faqData = questions || defaultFaqData;
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? -1 : index);
   };
 
+  const sectionClass = darkMode
+    ? "bg-[#0a0a23] text-white"
+    : "bg-[#f8f9fa] text-[#0a0a23]";
+  const borderClass = darkMode ? "border-white/20" : "border-gray-300";
+  const textClass = darkMode ? "text-white/80" : "text-[#6b7280]";
+
   return (
-    <section className="bg-[#0a0a23] text-white py-20">
+    <section className={`${sectionClass} py-20`}>
       <div className="max-w-[1000px] mx-auto px-8">
         <h2 className="text-[3rem] mb-12 text-left">
-          Frequently Asked Questions
+          {title || "Frequently Asked Questions"}
         </h2>
         <div className="w-full">
           {faqData.map((faq, index) => (
-            <div key={index} className="border-b border-white/20 py-6">
+            <div key={index} className={`border-b ${borderClass} py-6`}>
               <div
                 className="flex justify-between items-center text-xl font-medium cursor-pointer py-2"
                 onClick={() => toggleFAQ(index)}
@@ -111,7 +124,7 @@ export default function FAQ() {
                   activeIndex === index ? "max-h-96 pt-4" : "max-h-0"
                 }`}
               >
-                <div className="leading-relaxed text-lg text-white/80">
+                <div className={`leading-relaxed text-lg ${textClass}`}>
                   {faq.answer.map((paragraph, pIndex) => (
                     <p key={pIndex} className="mb-4">
                       {paragraph}
