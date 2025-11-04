@@ -58,7 +58,7 @@ export default function TeamPage() {
             </div>
             <div className="p-6">
               <h2 className="text-[1.5rem] text-[#0a0a23] mb-1 font-serif">Katherine Seldin</h2>
-              <p className="text-[#6b7280] font-medium mb-3">Clinical Consultant</p>
+              <p className="text-[#6b7280] font-medium mb-3">Clinical Advisor</p>
               <p className="text-[1.1rem] leading-[1.6] text-[#333]">
                 Dr. Katherine Seldin is an Attending Psychologist and Acting Assistant Professor at the University of Washington Medical Center, where she specializes in evidence-based cognitive and behavioral therapies including ACT, DBT, and mindfulness-based approaches. She completed her PhD in clinical psychology at the University of Washington, with advanced training at Northwestern University and University of Illinois Chicago. Her research focuses on emotional impulsivity, digital mental health interventions, and increasing equitable access to evidence-based care—making her expertise essential to Neurture&apos;s mission.
               </p>
