@@ -119,7 +119,7 @@ export default function HomePage() {
         subtitle="Confront cravings, track your progress, and build lasting change with tools from ACT, CBT, and mindfulness-based relapse prevention."
       />
 
-      <TrustIndicators />
+      {/* <TrustIndicators /> */}
 
       <ReviewsSection reviews={reviews} />
 
