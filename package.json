@@ -14,7 +14,7 @@
   "dependencies": {
     "framer-motion": "^12.23.12",
     "lz-string": "^1.5.0",
-    "next": "15.4.1",
+    "next": "15.4.8",
     "posthog-js": "^1.260.1",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -26,7 +26,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.1",
+    "eslint-config-next": "15.4.8",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
