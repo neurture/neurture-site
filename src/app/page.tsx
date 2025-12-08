@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import FAQ from "@/components/FAQ";
 import HeroSection from "@/components/HeroSection";
 import TrustIndicators from "@/components/TrustIndicators";
+import AwardsSection from "@/components/AwardsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import VideoSection from "@/components/VideoSection";
 import FeaturesSection from "@/components/FeaturesSection";
@@ -88,12 +89,12 @@ export default function HomePage() {
 
   const experts = [
     {
-      name: "Amanda Raybould",
-      title: "Amanda Raybould, MSW, LICSW",
-      organization: "Arlington School",
+      name: "Leo DeBroeck",
+      title: "Leo DeBroeck, MS, LMHC, CMHS",
+      organization: "Sea Mar Community Health Center",
       quote:
-        "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
-      imageSrc: "/images/amanda.jpg",
+        "Empowers counselors to extend care beyond the therapy room while keeping clients engaged in evidence-based practice.",
+      imageSrc: "/images/team/leo.jpg",
     },
     {
       name: "Dr. Sarah Coe-Odess",
@@ -104,12 +105,20 @@ export default function HomePage() {
       imageSrc: "/images/team/sarah.jpg",
     },
     {
-      name: "Amanda Dean",
-      title: "Amanda Dean LMSW",
+      name: "Amanda Raybould",
+      title: "Amanda Raybould, MSW, LICSW",
+      organization: "McLean Hospital",
       quote:
-        "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
-      initials: "AD",
+        "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
+      imageSrc: "/images/amanda.jpg",
     },
+    // {
+    //   name: "Amanda Dean",
+    //   title: "Amanda Dean LMSW",
+    //   quote:
+    //     "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
+    //   initials: "AD",
+    // },
   ];
 
   return (
@@ -118,6 +127,8 @@ export default function HomePage() {
         title={heroTitle}
         subtitle="Confront cravings, track your progress, and build lasting change with tools from ACT, CBT, and mindfulness-based relapse prevention."
       />
+
+      <AwardsSection />
 
       {/* <TrustIndicators /> */}
 
