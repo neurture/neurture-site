@@ -58,13 +58,14 @@ export default function TreatmentCentersPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative flex flex-col pt-16 pb-20 px-8 items-center text-center gap-6 bg-[#f8f9fa]">
+      <section className="relative flex flex-col py-28 px-8 items-center text-center gap-6 min-h-[600px] bg-cover bg-center" style={{ backgroundImage: "url('/beach-hand-on-heart.png')" }}>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 flex flex-col items-center max-w-[900px]">
-          <h1 className="font-serif font-bold text-[2.5rem] sm:text-[3.5rem] text-[#0a0a23] leading-[1.1] mb-6">
+          <h1 className="font-serif font-bold text-[2.5rem] sm:text-[3.5rem] text-white leading-[1.1] mb-6" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
             Extend Your Impact Beyond Discharge
           </h1>
 
-          <p className="text-lg sm:text-xl text-[#6b7280] max-w-[700px] leading-[1.6] mb-8">
+          <p className="text-lg sm:text-xl text-white/90 max-w-[700px] leading-[1.6] mb-8" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
             Give your alumni 24/7 access to evidence-based tools for managing cravings, stress, and triggers—no additional staff required.
           </p>
 
