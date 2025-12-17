@@ -33,19 +33,6 @@ const defaultFaqData: FAQItem[] = [
     ],
   },
   {
-    question: "Is this like an AI therapist?",
-    answer: [
-      "There is an AI assistant as part of Neurture but it is not a substitute or replacement for therapy or a mental health professional. The AI chat serves as a way to direct users to vetted resources within Neurture and is not intended to be used as a therapist. Chatting with the assistant is completely anonymous and can help users express their thoughts and feelings in a way that can be healing.",
-    ],
-  },
-  {
-    question: "Can I just use ChatGPT instead of this?",
-    answer: [
-      "You could but chat alone is quite limited. Neurture uses chat with an assistant as a starting point and then, based on what you share, it incorporates different meditations, journal prompts, and goals to include in your action plan.",
-      "Additionally, ChatGPT provides minimal privacy compared to Neurture. Privacy and trust are critical so we don't be sell your information, target you with ads, or train models using your chat data.",
-    ],
-  },
-  {
     question: "Does this replace therapy?",
     answer: [
       "Neurture does not replace therapy. There are many cases when therapy administered by a professional is the most effective approach to helping someone address their challenges or concerns.",

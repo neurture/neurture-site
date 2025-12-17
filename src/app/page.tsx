@@ -76,7 +76,7 @@ export default function HomePage() {
       text: "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me.",
     },
     {
-      text: "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways.",
+      text: "Finally a digestible, simple app to help me better myself in healthy manageable ways.",
     },
   ];
 
@@ -104,21 +104,6 @@ export default function HomePage() {
         "Neurture is a valuable, evidence-based resource with structured tools that empower users to break unhealthy patterns and pursue a more intentional, fulfilling life.",
       imageSrc: "/images/team/sarah.jpg",
     },
-    {
-      name: "Amanda Raybould",
-      title: "Amanda Raybould, MSW, LICSW",
-      organization: "McLean Hospital",
-      quote:
-        "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
-      imageSrc: "/images/amanda.jpg",
-    },
-    // {
-    //   name: "Amanda Dean",
-    //   title: "Amanda Dean LMSW",
-    //   quote:
-    //     "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
-    //   initials: "AD",
-    // },
   ];
 
   return (

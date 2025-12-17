@@ -67,25 +67,17 @@ export default function SweetSobrietyPage() {
       text: "The UX feels welcoming, calming and comfortable. Its a safe space to validate my feelings and get the help I need. Highly recommend to anyone struggling with addictive behaviors like me."
     },
     {
-      text: "Finally a digestible, simple, AI-infused app to help me better myself in healthy manageable ways."
+      text: "Finally a digestible, simple app to help me better myself in healthy manageable ways."
     }
   ];
 
   const features = [
     "Evidence-based courses on emotional eating, binge eating recovery, and mindful eating practices",
-    "AI-powered conversations to explore food triggers, process difficult emotions, and develop personalized coping strategies", 
     "Affirmations and mindset tools specifically designed to overcome food guilt and build body positivity",
     "Track your eating patterns, emotions, and progress in your digital food and mood journal"
   ];
 
   const experts = [
-    {
-      name: "Amanda Raybould",
-      title: "Amanda Raybould, MSW, LICSW",
-      organization: "Arlington School",
-      quote: "The AI chat was validating and offered some helpful reframing, much like I would use with my clients. It then guided me to some helpful meditations. I was very impressed!",
-      imageSrc: "/images/amanda.jpg"
-    },
     {
       name: "Dr. Sarah Coe-Odess",
       title: "Dr. Sarah Coe-Odess",
@@ -96,7 +88,7 @@ export default function SweetSobrietyPage() {
     {
       name: "Amanda Dean",
       title: "Amanda Dean LMSW",
-      quote: "Having access to evidence-based resources like urge-surfing is invaluable. Neurture complements that with personalized AI support which means users have access to affordable, acceptance-based care 24/7.",
+      quote: "Having access to evidence-based resources like urge-surfing is invaluable. Neurture provides affordable, acceptance-based care 24/7.",
       initials: "AD"
     }
   ];

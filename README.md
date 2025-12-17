@@ -9,7 +9,6 @@ Neurture is a science-backed mobile app that helps people break habits and overc
 ### Key Features
 
 - **Evidence-Based Courses** - Content reviewed by clinical psychologists using CBT, ACT, and other proven methodologies
-- **AI-Powered Support** - 24/7 personalized conversations to work through cravings, triggers, and difficult emotions  
 - **Digital Journaling** - Track patterns, emotions, and progress with easy photo capture of handwritten entries
 - **Mindful Interventions** - Affirmations, meditations, and urge-surfing techniques for real-time support
 

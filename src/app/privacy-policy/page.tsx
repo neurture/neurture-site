@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
           progress tracking—is stored locally on your device. We do not store
           this personal content on our servers. The only data shared with
           third-party services is what&apos;s necessary to provide specific
-          features like AI chat and image-to-text conversion, as detailed below.
+          features like image-to-text conversion, as detailed below.
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
@@ -35,10 +35,6 @@ export default function PrivacyPolicyPage() {
           <li className="mb-4 leading-[1.6]">
             Images of handwritten journal entries (only if you use the
             image-to-text feature)
-          </li>
-          <li className="mb-4 leading-[1.6]">
-            Chat messages submitted for interaction with our AI feature (only if
-            you use AI chat)
           </li>
         </ul>
         <p className="mb-6 leading-[1.6]">
@@ -82,9 +78,6 @@ export default function PrivacyPolicyPage() {
             Cloud)
           </li>
           <li className="mb-4 leading-[1.6]">
-            Processing chat messages (using OpenAI API)
-          </li>
-          <li className="mb-4 leading-[1.6]">
             Analyzing app usage and interaction patterns (using PostHog)
           </li>
           <li className="mb-4 leading-[1.6]">
@@ -97,9 +90,6 @@ export default function PrivacyPolicyPage() {
         </h2>
         <p className="mb-6 leading-[1.6]">Data is shared with:</p>
         <ul className="ml-8 mb-6">
-          <li className="mb-4 leading-[1.6]">
-            OpenAI for processing chat messages
-          </li>
           <li className="mb-4 leading-[1.6]">
             Google Cloud for converting handwritten images to text
           </li>
@@ -146,11 +136,6 @@ export default function PrivacyPolicyPage() {
           information:
         </p>
         <ul className="ml-8 mb-6">
-          <li className="mb-4 leading-[1.6]">
-            <strong>OpenAI (chat processing):</strong> Does not use your data to
-            train AI models. Data is retained for 30 days for abuse monitoring,
-            then deleted. SOC 2 Type 2 and ISO 27001 certified.
-          </li>
           <li className="mb-4 leading-[1.6]">
             <strong>Google Cloud (journal image processing):</strong> Images are
             processed in memory and not saved to disk. Google does not use your

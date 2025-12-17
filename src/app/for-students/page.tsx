@@ -5,7 +5,7 @@ export default function StudentsPage() {
     {
       question: "Is my data safe? Will this information be sold or shared?",
       answer: [
-        "Your data is safe. We don't sell your information, target you with ads, or train AI models using your personal data. Privacy and trust are critical—especially for mental health and behavior change tools.",
+        "Your data is safe. We don't sell your information or target you with ads. Privacy and trust are critical—especially for mental health and behavior change tools.",
         "When you use Neurture, your data is encrypted and stored securely. If your university provides access to Neurture, they only receive anonymous, aggregate usage statistics (like '60% of students activated their accounts'). They never see who is using the app or what you're working on.",
         "Research shows privacy concerns are the #1 barrier preventing students from using mental health apps. We built Neurture with privacy as a core feature, not an afterthought.",
       ],

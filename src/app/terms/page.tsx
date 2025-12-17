@@ -89,36 +89,7 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          7. AI Features, Usage, and Bias
-        </h2>
-        <p className="mb-4 leading-[1.6]">
-          The App may use AI services to provide supportive suggestions and help
-          route you to relevant tools (e.g., meditations, prompts). AI outputs
-          can be inaccurate or incomplete and should not be relied on as
-          professional advice. Use your judgment and consult a qualified
-          professional when needed.
-        </p>
-        <ul className="list-disc ml-6 mb-6 leading-[1.6]">
-          <li>
-            <strong>Data use:</strong> We send only the text you provide for AI
-            processing. We do not use chat data to train our own models. For
-            chat, we use OpenAI’s API; per OpenAI’s policy, API data is not used
-            to train OpenAI models and may be retained for up to 30 days for
-            abuse monitoring (subject to their policy).
-          </li>
-          <li>
-            <strong>Bias monitoring:</strong> We review prompts and sampled
-            outputs for tone and fairness, avoid sensitive demographic
-            assumptions, and iterate to reduce biased or harmful responses.
-          </li>
-          <li>
-            <strong>Human oversight:</strong> We design AI to assist—not
-            replace—human judgment. You always decide what to act on.
-          </li>
-        </ul>
-
-        <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          8. Disclaimers
+          7. Disclaimers
         </h2>
         <p className="mb-6 leading-[1.6]">
           THE APP AND SITE ARE PROVIDED “AS IS” WITHOUT WARRANTIES OF ANY KIND,
@@ -128,7 +99,7 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          9. Limitation of Liability
+          8. Limitation of Liability
         </h2>
         <p className="mb-6 leading-[1.6]">
           TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL WE BE LIABLE
@@ -138,7 +109,7 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          10. Termination
+          9. Termination
         </h2>
         <p className="mb-6 leading-[1.6]">
           We may suspend or terminate your access to the App or Site at any time
@@ -148,7 +119,7 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          11. Changes to These Terms
+          10. Changes to These Terms
         </h2>
         <p className="mb-6 leading-[1.6]">
           We may update these Terms. We will post the updated Terms on this page
@@ -157,7 +128,7 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-[1.5rem] text-[#0a0a23] mt-8 mb-4 font-serif">
-          12. Contact
+          11. Contact
         </h2>
         <p className="mb-6 leading-[1.6]">
           Questions about these Terms? Contact us at{" "}
