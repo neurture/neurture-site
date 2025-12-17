@@ -1,4 +1,5 @@
 import FAQ, { FAQItem } from "@/components/FAQ";
+import Image from "next/image";
 
 export default function TreatmentCentersPage() {
   const faqQuestions: FAQItem[] = [
@@ -58,9 +59,21 @@ export default function TreatmentCentersPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative flex flex-col py-28 px-8 items-center text-center gap-6 min-h-[600px] bg-cover bg-center" style={{ backgroundImage: "url('/beach-hand-on-heart.png')" }}>
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 flex flex-col items-center max-w-[900px]">
+      <section className="relative flex flex-col py-28 px-8 items-center text-center gap-6 min-h-[600px]">
+        {/* Optimized background image with progressive loading */}
+        <Image
+          src="/beach-hand-on-heart-optimized.jpg"
+          alt="Peaceful beach scene representing recovery and healing"
+          fill
+          priority
+          quality={85}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EAB0QAAICAQUAAAAAAAAAAAAAAAABAgMRBBMhIkH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A3p6lP0ivvTzyQ78mLsskwVrDJWdmBG5vIBqx/9k="
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="relative z-20 flex flex-col items-center max-w-[900px]">
           <h1 className="font-serif font-bold text-[2.5rem] sm:text-[3.5rem] text-white leading-[1.1] mb-6" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
             Extend Your Impact Beyond Discharge
           </h1>
