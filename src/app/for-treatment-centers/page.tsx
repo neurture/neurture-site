@@ -391,7 +391,7 @@ export default function TreatmentCentersPage() {
             <div>
               <h3 className="text-lg font-semibold text-[#0a0a23] mb-2">High-Risk Situations</h3>
               <p className="text-[#6b7280] leading-[1.6]">
-                In-the-moment coaching when facing triggers like social events or emotional stress.
+                In-the-moment tools when facing triggers like social events or emotional stress.
               </p>
             </div>
           </div>
