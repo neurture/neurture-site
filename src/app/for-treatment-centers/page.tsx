@@ -11,10 +11,10 @@ export default function TreatmentCentersPage() {
       ],
     },
     {
-      question: "How do we measure if alumni are using the app and if it's working?",
+      question: "Can providers track the progress that individuals are making in Neurture?",
       answer: [
-        "We provide aggregate usage metrics that show overall engagement without compromising individual privacy. You'll receive reports on metrics like: percentage of alumni who activate their accounts, average frequency of app usage, most-used tools and features, and engagement trends over time.",
-        "While we don't share individual alumni data, these aggregate insights help you understand program utilization and can inform your broader aftercare strategy. Many programs use this data to demonstrate the value of their continuing care offerings.",
+        "Alumni track their own journey—logging when they use coping tools, face triggers, or navigate high-risk situations. This data belongs to them and helps them build insight into their patterns.",
+        "When alumni are ready, they can share these activity logs with their provider, creating opportunities for deeper therapeutic conversations. Rather than relying on memory during check-ins, they can reference actual data about what's been challenging and which tools have helped. This optional sharing feature respects user privacy while enabling meaningful collaboration.",
       ],
     },
     {
