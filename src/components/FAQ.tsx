@@ -62,6 +62,14 @@ const defaultFaqData: FAQItem[] = [
       "We have no conflicts of interest to disclose. See details on our Team page.",
     ],
   },
+  {
+    question: "How is my data protected?",
+    answer: [
+      "Your privacy is our top priority. All sensitive data—including journal entries, conversations, check-ins, and plans—is encrypted and stored locally on your device. Period.",
+      "We never transmit your personal content to providers or store it on our servers. This means no HIPAA concerns for clinicians who recommend Neurture, and complete privacy for you.",
+      "You can also enable a PIN or biometric lock in settings for an additional layer of protection.",
+    ],
+  },
 ];
 
 interface FAQProps {

@@ -18,6 +18,14 @@ export default function TreatmentCentersPage() {
       ],
     },
     {
+      question: "Do we need to worry about HIPAA compliance or data dashboards?",
+      answer: [
+        "No. All personal data—journal entries, check-ins, conversations, and plans—is encrypted and stored locally on the user's device. Nothing is transmitted to providers or stored on our servers.",
+        "This means zero HIPAA compliance burden for your program. No patient dashboards to manage, no protected health information (PHI) to secure, and no risk of data breaches affecting your center.",
+        "Alumni own their data completely. If they choose to share activity logs with you, that's their decision—but there's no central database or portal for you to monitor. This privacy-first approach is exactly why treatment centers love recommending Neurture.",
+      ],
+    },
+    {
       question: "Will this replace our existing alumni program?",
       answer: [
         "No. Neurture is designed to complement and enhance your existing alumni program, not replace it. Think of it as an additional layer of support that extends your reach between alumni events, support groups, and check-ins.",

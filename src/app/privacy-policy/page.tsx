@@ -131,9 +131,21 @@ export default function PrivacyPolicyPage() {
           6. Data Security
         </h2>
         <p className="mb-6 leading-[1.6]">
-          We take data security seriously and work with industry-leading service
-          providers who implement strong security measures to protect your
-          information:
+          We take data security seriously at every level:
+        </p>
+        <ul className="ml-8 mb-6">
+          <li className="mb-4 leading-[1.6]">
+            <strong>On your device:</strong> All personal data (journal entries,
+            check-ins, conversations, plans) is encrypted and stored locally on
+            your device—never transmitted to providers or stored on our servers.
+            This means no HIPAA compliance burden for treatment centers and
+            complete privacy for you.
+          </li>
+        </ul>
+        <p className="mb-6 leading-[1.6]">
+          For limited features that require external processing, we work with
+          industry-leading service providers who implement strong security
+          measures:
         </p>
         <ul className="ml-8 mb-6">
           <li className="mb-4 leading-[1.6]">
