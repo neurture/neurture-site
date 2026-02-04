@@ -1,3 +1,15 @@
+# ⚠️ REPOSITORY MOVED ⚠️
+
+**This repository has been archived and merged into the main Next.js application.**
+
+## New Repository Location
+
+👉 **https://github.com/bradydowling/journal-buddy-nextjs**
+
+All marketing site code, along with the main application, now lives in the repository above. This repo is kept for historical reference only.
+
+---
+
 # Neurture - Break Habits with Science-Backed Tools
 
 **Transform your relationship with harmful habits through evidence-based digital interventions.**
