@@ -14,6 +14,14 @@
 
     - Change image to be a cutoff (at about halfway down the length of the phone) iPhone image with app screenshot inside it
 
+### From [cocoon.com](https://www.cocoon.com/vwo/home)
+
+    - Add specific strategies here
+
+### From [charliehealth.com](https://www.charliehealth.com/)
+
+    - Add specific strategies here
+
 ## Other
 
 - Add proper error pages (404, 500)
